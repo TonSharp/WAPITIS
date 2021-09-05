@@ -1,0 +1,3 @@
+﻿  FrameworkEntryPoint.cpp
+D:\Projects\CPP\PL\WinApiFramework\WinApiFramework\Framework\main.hpp(19): warning C4715: _main_: значение возвращается не при всех путях выполнения
+  WinApiFramework.vcxproj -> D:\Projects\CPP\PL\WinApiFramework\Debug\WinApiFramework.exe
