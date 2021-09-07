@@ -1,4 +1,6 @@
-﻿struct Transform
+﻿#pragma once
+
+struct Transform
 {
 	int x, y;
 };

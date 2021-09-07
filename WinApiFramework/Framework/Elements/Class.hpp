@@ -19,14 +19,14 @@ private:
 
 public:
 
-	Class(wstring className)
+	Class(wstring text)
 	{
-		szClassName = className;
+		szClassName = text;
 	}
 
-	Class(wstring className, WNDPROC callback, HINSTANCE hInstance)
+	Class(wstring text, WNDPROC callback, HINSTANCE hInstance)
 	{
-		szClassName = className;
+		szClassName = text;
 		CreateDefaultClass(callback, hInstance);
 	}
 
