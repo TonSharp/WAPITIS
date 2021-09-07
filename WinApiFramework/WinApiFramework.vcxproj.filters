@@ -8,6 +8,18 @@
     <ClInclude Include="Framework\Elements\Window.hpp" />
     <ClInclude Include="Framework\libs.h" />
     <ClInclude Include="Framework\main.hpp" />
+    <ClInclude Include="Framework\Elements\UI\Button.hpp" />
+    <ClInclude Include="Framework\Elements\UI\ButtonBase.hpp" />
+    <ClInclude Include="Framework\Elements\UI\CheckBox.hpp" />
+    <ClInclude Include="Framework\Elements\UI\CheckBox3.hpp" />
+    <ClInclude Include="Framework\Elements\UI\ComboBox.hpp" />
+    <ClInclude Include="Framework\Elements\UI\Input.hpp" />
+    <ClInclude Include="Framework\Elements\UI\ListBox.hpp" />
+    <ClInclude Include="Framework\Elements\UI\RadioButton.hpp" />
+    <ClInclude Include="Framework\Elements\UI\ScrollBar.hpp" />
+    <ClInclude Include="Framework\Elements\UI\Text.hpp" />
+    <ClInclude Include="Framework\Elements\UI\UI.hpp" />
+    <ClInclude Include="Framework\Elements\UI\UILibs.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\FrameworkEntryPoint.cpp" />
