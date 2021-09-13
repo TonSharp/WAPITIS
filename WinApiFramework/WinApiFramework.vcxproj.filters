@@ -2,7 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="Framework\Elements\Args.hpp" />
-    <ClInclude Include="Framework\Elements\Class.hpp" />
     <ClInclude Include="Framework\Elements\Msg.hpp" />
     <ClInclude Include="Framework\Elements\Transform.hpp" />
     <ClInclude Include="Framework\Elements\Window.hpp" />
@@ -20,6 +19,9 @@
     <ClInclude Include="Framework\Elements\UI\Text.hpp" />
     <ClInclude Include="Framework\Elements\UI\UI.hpp" />
     <ClInclude Include="Framework\Elements\UI\UILibs.h" />
+    <ClInclude Include="Framework\Elements\WindowClass.hpp" />
+    <ClInclude Include="Framework\Elements\Menu\Menu.hpp" />
+    <ClInclude Include="Framework\Elements\Menu\MenuItem.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\FrameworkEntryPoint.cpp" />
