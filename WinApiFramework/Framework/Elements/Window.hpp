@@ -1,23 +1,41 @@
 ﻿#pragma once
-#include "Class.hpp"
 #include "Transform.hpp"
+#include "Args.hpp"
+#include "WindowClass.hpp"
 #include <string>
 
 using namespace std;
+
+bool Closing(CallbackArgs args)
+{
+	return args.Msg == WM_CLOSE;
+}
+
+void Quit()
+{
+	PostQuitMessage(0);
+}
 
 class Window
 {
 private:
 
-	wstring caption;
-	HWND hWindow = NULL;
-	int nCmdShow;
+	MainArgs mainArgs;
 
-	bool Register()
+	wstring caption;
+	wstring* className;
+
+	HWND hWnd;
+
+	WindowClass* wnd;
+
+	bool isClassRegistered = false;
+
+	bool RegisterWindow()
 	{
-		if (!hWindow)
+		if (!hWnd)
 		{
-			MessageBox(NULL, L"Не получилось создать окно!", L"Ошибка", MB_OK);
+			MessageBox(NULL, L"Не удалось создать окно!", L"Ошибка", MB_OK);
 			return false;
 		}
 		else
@@ -27,79 +45,138 @@ private:
 
 public:
 
-	Window(wstring windowCaption, int cmdShow)
+	Window(wstring caption, wstring* className, MainArgs args)
 	{
-		caption = windowCaption;
-		nCmdShow = cmdShow;
+		mainArgs = args;
+
+		this->caption = caption;
+		this->className = className;
+
+		wnd = new WindowClass(*className);
+		wnd->InitDefaulClass(args.hInstance);
 	}
 
-	bool CreateDefaultWindow(Class* clas)
+	bool RegisterClass()
 	{
-		hWindow = CreateWindowEx(
-			0,
-			clas->GetPointer()->lpszClassName,
+		if (isClassRegistered)
+			return false;
+		
+		isClassRegistered = wnd->Register();
+		return isClassRegistered;
+	}
+
+	bool CreateDefaultWindow(HWND parent, int (*callback)(CallbackArgs args))
+	{
+		if (!isClassRegistered)
+			RegisterClass();
+
+		DestroyWindow(hWnd);
+
+		hWnd = CreateWindow(
+			className->c_str(),
 			caption.c_str(),
 			WS_OVERLAPPEDWINDOW,
 			CW_USEDEFAULT,
 			NULL,
 			CW_USEDEFAULT,
 			NULL,
+			parent,
 			NULL,
-			NULL,
-			clas->GetPointer()->hInstance,
+			mainArgs.hInstance,
 			NULL
 		);
 
-		return Register();
+		SetWindowLong(hWnd, GWL_USERDATA, (LONG)callback);
+
+		return RegisterWindow();
 	}
 
-	bool CreateCustomWindow(Class* szClass, DWORD extentedStyle, DWORD style, Transform pos, Transform size, Window* parent, HMENU menu, LPVOID lParam)
+	bool CreateCustomWindow(DWORD extentedStyle, DWORD style, Transform pos, Transform size, HWND parent, HMENU menu, LPVOID lParam, int (*callback)(CallbackArgs args))
 	{
-		HWND pr = NULL;
+		if (!isClassRegistered)
+			RegisterClass();
 
-		if (parent != NULL)
-			pr = parent->Get();
+		DestroyWindow(hWnd);
 
-		hWindow = CreateWindowEx(
+		hWnd = CreateWindowEx(
 			extentedStyle,
-			szClass->GetPointer()->lpszClassName,
+			className->c_str(),
 			caption.c_str(),
 			style,
 			pos.x,
 			pos.y,
 			size.x,
 			size.y,
-			pr,
+			parent,
 			menu,
-			szClass->GetPointer()->hInstance,
+			mainArgs.hInstance,
 			lParam
 		);
 
-		return Register();
+		SetWindowLong(hWnd, GWL_USERDATA, (LONG)callback);
+
+		return RegisterWindow();
+	}
+
+	void Enable()
+	{
+		EnableWindow(hWnd, true);
+	}
+	void Disable()
+	{
+		EnableWindow(hWnd, false);
+	}
+	void SetEnableState(bool state)
+	{
+		EnableWindow(hWnd, state);
 	}
 
 	void SetCaption(wstring newCaption)
 	{
 		caption = newCaption;
-		SetWindowText(hWindow, caption.c_str());
+		SetWindowText(hWnd, caption.c_str());
+	}
+	void SetBackgroundColor(COLORREF color)
+	{
+		if(!isClassRegistered)
+			wnd->SetBackgroundColor(color);
+		else
+		{
+			HBRUSH brush = CreateSolidBrush(color);
+			SetClassLong(hWnd, GCLP_HBRBACKGROUND, (LONG)brush);
+			InvalidateRect(hWnd, NULL, TRUE);
+		}
 	}
 
 	void Show()
 	{
-		ShowWindow(hWindow, nCmdShow);
+		ShowWindow(hWnd, mainArgs.nCmdShow);
 		Update();
 	}
 	void Update()
 	{
-		UpdateWindow(hWindow);
+		UpdateWindow(hWnd);
 	}
 
 	HWND* GetPointer()
 	{
-		return &hWindow;
+		return &hWnd;
 	}
 	HWND Get()
 	{
-		return hWindow;
+		return hWnd;
+	}
+	WindowClass* GetClassPointer()
+	{
+		return wnd;
+	}
+
+	operator HWND() const
+	{
+		return hWnd;
+	}
+	operator WindowClass* () const
+	{
+		return wnd;
 	}
 };

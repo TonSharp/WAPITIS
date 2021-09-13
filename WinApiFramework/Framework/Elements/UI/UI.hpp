@@ -44,6 +44,14 @@ public:
 	{
 	}
 
+	bool IsContextMenu(CallbackArgs args)
+	{
+		if (args.Msg == WM_CONTEXTMENU && (HWND)args.wParam == wnd)
+			return true;
+		else
+			return false;
+	}
+
 	HWND Get()
 	{
 		return wnd;

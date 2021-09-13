@@ -7,13 +7,12 @@ struct MainArgs
 	HINSTANCE hPrevInstance; 
 	LPSTR lpCmdLine; 
 	int nCmdShow;
-	WNDPROC WindowProc;
 };
 
 struct CallbackArgs
 {
 	HWND hWnd;
-	UINT uMsg;
+	UINT Msg;
 	WPARAM wParam;
 	LPARAM lParam;
 };
