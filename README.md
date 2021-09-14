@@ -33,7 +33,7 @@ Open WAPI - это фреймворк для Win32API с открытым исх
 </div>
 <hr>
 
-- __Перейти на вкладку `Releases` в репозитории.__
+- __Перейти на вкладку [`Releases`](https://github.com/TonSharp/OpenWAPI/wiki/releases) в репозитории.__
 <div align=center>
  <img src="SetupTutorial/5.png?raw=true"</img>
 </div>
