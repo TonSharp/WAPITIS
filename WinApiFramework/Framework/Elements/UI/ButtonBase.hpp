@@ -16,11 +16,17 @@ public:
 
 	virtual void SetState(bool state)
 	{
+		if (this == nullptr)
+			return;
+
 		SendMessage(wnd, BM_SETSTATE, state, NULL);
 	}
 
 	virtual void SetCheck(bool check)
 	{
+		if (this == nullptr)
+			return;
+
 		int val = 0;
 
 		if (check)
@@ -31,6 +37,9 @@ public:
 
 	virtual bool IsChecked()
 	{
+		if (this == nullptr)
+			return false;
+
 		WORD res = (WORD)SendMessage(wnd, BM_GETCHECK, NULL, NULL);
 
 		if (res == 0 || res == 2)
@@ -41,6 +50,9 @@ public:
 
 	virtual bool IsClicked(CallbackArgs args)
 	{
+		if (this == nullptr)
+			return false;
+
 		if (args.Msg != WM_COMMAND)
 			return false;
 

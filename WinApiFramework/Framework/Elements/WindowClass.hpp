@@ -12,6 +12,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam)
 	if (cls != nullptr)
 		if (cls({ hWnd, Msg, wParam, lParam }) != 1) {}
 
+	if (Msg == WM_CLOSE)
+		DestroyWindow(hWnd);
+
 	return DefWindowProc(hWnd, Msg, wParam, lParam);
 }
 
