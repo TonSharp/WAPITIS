@@ -39,7 +39,7 @@ Open WAPI - это фреймворк для Win32API с открытым исх
 - __Писать код в файле main.hpp__
 
 # Documentation
-Документацию о всех поддерживаемых функциях фреймворка ищите на [Wiki](https://github.com/TonSharp/OpenWAPI/wiki/Documentation) в GitHub.
+Документацию о всех поддерживаемых функциях фреймворка ищите на [Wiki](https://github.com/TonSharp/OpenWAPI/wiki/Base-Documentation) в GitHub.
 
 # Feedback
 Любые пожелания, просьбы и заметки о найденных багах оставлять в разделе [Issues](https://github.com/TonSharp/OpenWAPI/issues) на GitHub
