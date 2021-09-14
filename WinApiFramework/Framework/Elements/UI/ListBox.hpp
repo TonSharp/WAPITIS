@@ -6,13 +6,13 @@ class ListBox : public UI
 {
 public:
 
-	ListBox(wstring text, Window* parent, int id, HINSTANCE hInstance, LPVOID lParam) : UI(text, parent, id, hInstance, lParam)	
+	ListBox(wstring text, HWND parent, int id, HINSTANCE hInstance, LPVOID lParam) : UI(text, parent, id, hInstance, lParam)	
 	{
 	}
 
 	void Create(DWORD style, Transform pos, Transform size) override
 	{
-		wnd = CreateWindow(L"listbox", NULL, WS_CHILD | WS_VISIBLE | LBS_NOTIFY | style, pos.x, pos.y, size.x, size.y, *wndParent, menu, hInstance, lParam);
+		wnd = CreateWindow(L"listbox", NULL, WS_CHILD | WS_VISIBLE | LBS_NOTIFY | style, pos.x, pos.y, size.x, size.y, wndParent, menu, hInstance, lParam);
 	}
 
 	void AddElement(wstring str)
@@ -34,12 +34,12 @@ public:
 		return (int)SendMessage(wnd, LB_GETCURSEL, 0, 0L);
 	}
 
-	bool IsLeftDoubleClick(WPARAM wParam, UINT msg)
+	bool IsLeftDoubleClick(CallbackArgs args)
 	{
-		if (msg != WM_COMMAND)
+		if (args.Msg != WM_COMMAND)
 			return false;
 
-		if (LOWORD(wParam) == (int)menu && HIWORD(wParam) == LBN_DBLCLK)
+		if (LOWORD(args.wParam) == (int)menu && HIWORD(args.wParam) == LBN_DBLCLK)
 			return true;
 
 		else return false;

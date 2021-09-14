@@ -79,13 +79,13 @@ public:
 		}
 	}
 
-	void Register(Window* wnd)
+	void Register(HWND wnd)
 	{
-		SetMenu(wnd->Get(), menu);
+		SetMenu(wnd, menu);
 
 		for (auto m : subMenus)
 		{
-			SetMenu(wnd->Get(), m);
+			SetMenu(wnd, m);
 		}
 	}
 

@@ -19,7 +19,7 @@ class UI
 protected:
 
 	wstring text;
-	HWND* wndParent;
+	HWND wndParent;
 	HMENU menu;
 	HINSTANCE hInstance;
 	LPVOID lParam;
@@ -28,12 +28,12 @@ protected:
 
 public:
 
-	UI(wstring text, Window* parent, int id, HINSTANCE hInstance, LPVOID lParam)
+	UI(wstring text, HWND parent, int id, HINSTANCE hInstance, LPVOID lParam)
 	{
 		this->text = text;
 
 		if (parent != NULL)
-			wndParent = parent->GetPointer();
+			wndParent = parent;
 
 		this->menu = (HMENU)id;
 		this->hInstance = hInstance;

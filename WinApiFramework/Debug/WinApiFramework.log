@@ -1,3 +1,5 @@
 ﻿  FrameworkEntryPoint.cpp
-D:\Projects\CPP\PL\WinApiFramework\WinApiFramework\Framework\main.hpp(19): warning C4715: _main_: значение возвращается не при всех путях выполнения
-  WinApiFramework.vcxproj -> D:\Projects\CPP\PL\WinApiFramework\Debug\WinApiFramework.exe
+D:\Projects\CPP\OpenWAPI\WinApiFramework\Framework\Elements\UI\ComboBox.hpp(28,21): warning C4018: <: несоответствие типов со знаком и без знака
+D:\Projects\CPP\OpenWAPI\WinApiFramework\Framework\Elements\Menu\Menu.hpp(99,20): warning C4018: >=: несоответствие типов со знаком и без знака
+D:\Projects\CPP\OpenWAPI\WinApiFramework\Framework\Elements\Menu\Menu.hpp(110,20): warning C4018: >=: несоответствие типов со знаком и без знака
+  WinApiFramework.vcxproj -> D:\Projects\CPP\OpenWAPI\Debug\WinApiFramework.exe

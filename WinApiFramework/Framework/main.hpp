@@ -21,12 +21,13 @@ static int EditCallback(CallbackArgs);
 int _main_(MainArgs args)
 {
     wnd = new Window(szTitle, &szMainClass, args);
+    wnd->CreateDefaultWindow(NULL, MainCallback);
     editWnd = new Window(L"Edit", &szEditClass, args);
 
     wnd->CreateDefaultWindow(NULL, MainCallback);
     wnd->SetBackgroundColor(RGB(100, 100, 100));
 
-    list = new ListBox(L"", wnd, 5000, args.hInstance, NULL);
+    list = new ListBox(L"", *wnd, 5000, args.hInstance, NULL);
     list->Create(BORDER, { 10, 10 }, { 500, 500 });
 
     list->AddElement(L"ONE");
@@ -54,7 +55,7 @@ int _main_(MainArgs args)
         L"Сортировка"
     );
 
-    mainMenu->Register(wnd);
+    mainMenu->Register(*wnd);
 
     listContext = new Menu(L"List context menu", true, 0);
 

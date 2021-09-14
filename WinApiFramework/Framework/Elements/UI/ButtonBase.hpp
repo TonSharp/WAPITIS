@@ -6,7 +6,7 @@ class ButtonBase : public UI
 {
 public:
 
-	ButtonBase(wstring text, Window* parent, int id, HINSTANCE hInstance, LPVOID lParam) : UI(text, parent, id, hInstance, lParam)	
+	ButtonBase(wstring text, HWND parent, int id, HINSTANCE hInstance, LPVOID lParam) : UI(text, parent, id, hInstance, lParam)	
 	{
 	}
 
@@ -39,12 +39,12 @@ public:
 			return true;
 	}
 
-	virtual bool IsClicked(WPARAM wParam, UINT msg)
+	virtual bool IsClicked(CallbackArgs args)
 	{
-		if (msg != WM_COMMAND)
+		if (args.Msg != WM_COMMAND)
 			return false;
 
-		if (LOWORD(wParam) == (int)menu)
+		if (LOWORD(args.wParam) == (int)menu)
 			return true;
 		else 
 			return false;
