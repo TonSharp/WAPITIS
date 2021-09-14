@@ -15,24 +15,57 @@ Open WAPI - это фреймворк для Win32API с открытым исх
 </div>
 <hr>
 
-- __После открытия проекта удалить все существующие файлы.__
+- __После открытия проекта выделить следующие папки, и нажать клавишу `Delete`.__
 <div align=center>
  <img src="SetupTutorial/2.png?raw=true"</img>
 </div>
 <hr>
 
-- __Перейти на вкладку релизов (Releases) на GitHub и скачать свежую версию фреймворка (или использовать предварительную версию, скачав репозиторий и скопировав соответствующую папку).__
+- __Нажать правой кнопкой мыши по пиктограме решения и в контекстном меню выбрать пункт _открыть папку в проводнике_.__
 <div align=center>
  <img src="SetupTutorial/3.png?raw=true"</img>
 </div>
+<hr>
+
+- __Выделить все имеющиеся файлы и удалить их, папку не закрывать.__
 <div align=center>
  <img src="SetupTutorial/4.png?raw=true"</img>
 </div>
 <hr>
 
-- __Распаковать архив и переместить папку в проек в Visual Studio на значок решения.__
+- __Перейти на вкладку `Releases` в репозитории.__
 <div align=center>
  <img src="SetupTutorial/5.png?raw=true"</img>
+</div>
+<hr>
+
+- __В самом свежем релизе скачать архив _Framework.zip___
+<div align=center>
+ <img src="SetupTutorial/6.png?raw=true"</img>
+</div>
+<hr>
+
+- __Распаковать папку из архива в то место, откуда мы удалили все файлы.__
+<div align=center>
+ <img src="SetupTutorial/7.png?raw=true"</img>
+</div>
+<hr>
+
+- __Откройте распакованную папку _Framework_.__
+<div align=center>
+ <img src="SetupTutorial/8.png?raw=true"</img>
+</div>
+<hr>
+
+- __Выделите файлы `FrameworkEntryPoint.cpp` и `main.hpp`, после чего перенесите их мышью на пиктограмму решения в Visual Studio.__
+<div align=center>
+ <img src="SetupTutorial/9.png?raw=true"</img>
+</div>
+<hr>
+
+- __Если вы все сделали правильно, то получите следующий результат в обозревателе решения.__
+<div align=center>
+ <img src="SetupTutorial/10.png?raw=true"</img>
 </div>
 <hr>
 
