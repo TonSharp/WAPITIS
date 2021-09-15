@@ -1,5 +1,0 @@
-﻿  FrameworkEntryPoint.cpp
-D:\Projects\CPP\OpenWAPI\WinApiFramework\Framework\Elements\UI\ComboBox.hpp(28,21): warning C4018: <: несоответствие типов со знаком и без знака
-D:\Projects\CPP\OpenWAPI\WinApiFramework\Framework\Elements\Menu\Menu.hpp(99,20): warning C4018: >=: несоответствие типов со знаком и без знака
-D:\Projects\CPP\OpenWAPI\WinApiFramework\Framework\Elements\Menu\Menu.hpp(110,20): warning C4018: >=: несоответствие типов со знаком и без знака
-  WinApiFramework.vcxproj -> D:\Projects\CPP\OpenWAPI\Debug\WinApiFramework.exe
