@@ -1,3 +1,6 @@
 .vs
+.vscode
 Debug
 WinApiFramework/Debug
+WinApiFramework/Framework.zip
+WinApiFramework/Framework/FrameworkEntryPoint.exe
