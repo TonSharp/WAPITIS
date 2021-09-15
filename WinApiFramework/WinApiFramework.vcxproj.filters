@@ -14,14 +14,14 @@
     <ClInclude Include="Framework\Elements\UI\ComboBox.hpp" />
     <ClInclude Include="Framework\Elements\UI\Input.hpp" />
     <ClInclude Include="Framework\Elements\UI\ListBox.hpp" />
+    <ClInclude Include="Framework\Elements\UI\Menu\Menu.hpp" />
+    <ClInclude Include="Framework\Elements\UI\Menu\MenuItem.hpp" />
     <ClInclude Include="Framework\Elements\UI\RadioButton.hpp" />
     <ClInclude Include="Framework\Elements\UI\ScrollBar.hpp" />
     <ClInclude Include="Framework\Elements\UI\Text.hpp" />
     <ClInclude Include="Framework\Elements\UI\UI.hpp" />
     <ClInclude Include="Framework\Elements\UI\UILibs.hpp" />
     <ClInclude Include="Framework\Elements\WindowClass.hpp" />
-    <ClInclude Include="Framework\Elements\Menu\Menu.hpp" />
-    <ClInclude Include="Framework\Elements\Menu\MenuItem.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\FrameworkEntryPoint.cpp" />
