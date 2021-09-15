@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "libs.h"
+#include "libs.hpp"
 
 //Сюда добавляйте свои библиотеки:
 

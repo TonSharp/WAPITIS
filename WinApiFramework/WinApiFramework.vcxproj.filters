@@ -5,7 +5,7 @@
     <ClInclude Include="Framework\Elements\Msg.hpp" />
     <ClInclude Include="Framework\Elements\Transform.hpp" />
     <ClInclude Include="Framework\Elements\Window.hpp" />
-    <ClInclude Include="Framework\libs.h" />
+    <ClInclude Include="Framework\libs.hpp" />
     <ClInclude Include="Framework\main.hpp" />
     <ClInclude Include="Framework\Elements\UI\Button.hpp" />
     <ClInclude Include="Framework\Elements\UI\ButtonBase.hpp" />
@@ -18,7 +18,7 @@
     <ClInclude Include="Framework\Elements\UI\ScrollBar.hpp" />
     <ClInclude Include="Framework\Elements\UI\Text.hpp" />
     <ClInclude Include="Framework\Elements\UI\UI.hpp" />
-    <ClInclude Include="Framework\Elements\UI\UILibs.h" />
+    <ClInclude Include="Framework\Elements\UI\UILibs.hpp" />
     <ClInclude Include="Framework\Elements\WindowClass.hpp" />
     <ClInclude Include="Framework\Elements\Menu\Menu.hpp" />
     <ClInclude Include="Framework\Elements\Menu\MenuItem.hpp" />
