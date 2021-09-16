@@ -20,7 +20,7 @@ public:
 
 	void Create(DWORD style, Transform pos, Transform size) override
 	{
-		wnd = CreateWindow(L"combobox", NULL, WS_CHILD | WS_VISIBLE | CBS_DROPDOWN | style, pos.x, pos.y, size.x, size.y, wndParent->Get(), NULL, hInstance, NULL);
+		wnd = CreateWindow(L"combobox", NULL, WS_CHILD | WS_VISIBLE | CBS_DROPDOWN | style | localStyle, pos.x, pos.y, size.x, size.y, wndParent->Get(), NULL, hInstance, NULL);
 	}
 
 	void AddElement(wstring str)

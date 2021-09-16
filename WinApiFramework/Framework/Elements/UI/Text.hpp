@@ -12,6 +12,6 @@ public:
 
 	void Create(DWORD style, Transform pos, Transform size) override
 	{
-		wnd = CreateWindow(L"static", text.c_str(), WS_CHILD | WS_VISIBLE | style, pos.x, pos.y, size.x, size.y, wndParent->Get(), NULL, hInstance, NULL);
+		wnd = CreateWindow(L"static", text.c_str(), WS_CHILD | WS_VISIBLE | style | localStyle, pos.x, pos.y, size.x, size.y, wndParent->Get(), NULL, hInstance, NULL);
 	}
 };
