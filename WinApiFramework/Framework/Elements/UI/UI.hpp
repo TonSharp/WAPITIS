@@ -8,8 +8,6 @@
 #define MULTILINE ES_MULTILINE
 #define DROPDOWN CBS_DROPDOWN
 
-#define VSCROLL WS_VSCROLL
-
 #define UNRESIZABLE_WINDOW (WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU)
 
 using namespace std;
@@ -19,25 +17,42 @@ class UI
 protected:
 
 	wstring text;
-	HWND wndParent;
-	HMENU menu;
+	Window* wndParent;
 	HINSTANCE hInstance;
-	LPVOID lParam;
 
 	HWND wnd;
 
+	bool vScroll = false;
+	bool hScroll = false;
+
+	DWORD localStyle;
+
 public:
 
-	UI(wstring text, HWND parent, int id, HINSTANCE hInstance, LPVOID lParam)
+	UI(wstring text, Window* parent, HINSTANCE hInstance)
 	{
 		this->text = text;
 
-		if (parent != NULL)
+		if (parent != nullptr)
 			wndParent = parent;
 
-		this->menu = (HMENU)id;
 		this->hInstance = hInstance;
-		this->lParam = lParam;
+	}
+
+	virtual void AddVScroll()
+	{
+		localStyle |= WS_VSCROLL;
+		vScroll = true;
+	}
+	virtual void AddHScroll()
+	{
+		localStyle |= WS_HSCROLL;
+		hScroll = true;
+	}
+
+	virtual void SetText(wstring text)
+	{
+		SetWindowText(wnd, text.c_str());
 	}
 
 	virtual void Create(DWORD style, Transform pos, Transform size)
