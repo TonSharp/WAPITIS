@@ -116,7 +116,7 @@ Open WAPI - это фреймворк для Win32API с открытым исх
 Откройте файл main.hpp, где вы будете писать свой код. Компиляция программы является _Default Build Task (Ctrl+Shift+B)_, а запуск и отладка программы / запуск без отладки – _F5 / Ctrl+F5_ соответственно.
 
 # Documentation
-Документацию о всех поддерживаемых функциях фреймворка ищите на [Wiki](https://github.com/TonSharp/OpenWAPI/wiki/Base-Documentation) в GitHub.
+Документацию о всех поддерживаемых функциях фреймворка ищите на [Wiki](https://github.com/TonSharp/OpenWAPI/wiki/Overview) в GitHub.
 
 # Feedback
 Любые пожелания, просьбы и заметки о найденных багах оставлять в разделе [Issues](https://github.com/TonSharp/OpenWAPI/issues) на GitHub
