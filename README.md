@@ -74,6 +74,9 @@ Open WAPI - это фреймворк для Win32API с открытым исх
 - __Пишите свой код в файле `main.hpp`.__
 
 # Setup guide for VS Code
+Для работы с Open WAPI непосредственно в VS Code вам понадобится установить расширение "C/C++" из каталога расширений и установить компилятор GCC и дебаггер GDB из MinGW по этой инструкции: https://code.visualstudio.com/docs/cpp/config-mingw.
+**ВАЖНО**: Не пропустите ЧЕТВЕРТЫЙ пункт из руководства выше!
+
 - __Запустите Visual Studio Code и нажмите Open Folder__
 <div align=center>
  <img src="SetupTutorial/VS1.png?raw=true"</img>
