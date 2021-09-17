@@ -11,13 +11,13 @@ private:
 
 public:
 
-	ScrollBar(wstring text, Window parent, int id, HINSTANCE hInstance, LPVOID lParam) : UI(text, parent, id, hInstance, lParam)	
+	ScrollBar(wstring text, Window* parent, int id, HINSTANCE hInstance, LPVOID lParam) : UI(text, parent, hInstance)	
 	{
 	}
 
 	void Create(DWORD style, Transform pos, Transform size) override
 	{
-		wnd = CreateWindow(L"scrollbar", text.c_str(), WS_CHILD | WS_VISIBLE | style, pos.x, pos.y, size.x, size.y, wndParent, menu, hInstance, lParam);
+		wnd = CreateWindow(L"scrollbar", text.c_str(), WS_CHILD | WS_VISIBLE | style, pos.x, pos.y, size.x, size.y, wndParent->Get(), NULL, hInstance, NULL);
 	}
 
 	void SetScrollPosition(int pos)

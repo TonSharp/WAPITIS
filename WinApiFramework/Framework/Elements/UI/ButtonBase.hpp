@@ -6,7 +6,7 @@ class ButtonBase : public UI
 {
 public:
 
-	ButtonBase(wstring text, HWND parent, int id, HINSTANCE hInstance, LPVOID lParam) : UI(text, parent, id, hInstance, lParam)	
+	ButtonBase(wstring text, Window* parent, HINSTANCE hInstance) : UI(text, parent, hInstance)	
 	{
 	}
 
@@ -56,7 +56,7 @@ public:
 		if (args.Msg != WM_COMMAND)
 			return false;
 
-		if (LOWORD(args.wParam) == (int)menu)
+		if (args.lParam == (LPARAM)wnd)
 			return true;
 		else 
 			return false;
