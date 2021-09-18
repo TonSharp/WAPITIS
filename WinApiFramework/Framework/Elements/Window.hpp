@@ -31,6 +31,8 @@ private:
 
 	bool isClassRegistered = false;
 
+	PAINTSTRUCT ps;
+
 	bool RegisterWindow()
 	{
 		if (!hWnd)
@@ -156,6 +158,67 @@ public:
 	void Update()
 	{
 		UpdateWindow(hWnd);
+	}
+
+	void StartDraw()
+	{
+		BeginPaint(hWnd, &ps);
+	}
+	void StopDraw()
+	{
+		EndPaint(hWnd, &ps);
+	}
+
+	bool IsDraw(CallbackArgs args)
+	{
+		if (args.Msg == WM_PAINT)
+			return true;
+		else
+			return false;
+	}
+	bool IsResize(float* width, float* height, CallbackArgs args)
+	{
+		if (args.Msg == WM_SIZE)
+		{
+			*width = LOWORD(args.lParam);
+			*height = HIWORD(args.lParam);
+
+			return true;
+		}
+		
+		return false;
+	}
+	bool IsKeyDown(CallbackArgs args, DWORD key)
+	{
+		if (args.Msg != WM_KEYDOWN)
+			return false;
+
+		if (key == NULL)
+			return true;
+
+		if (args.wParam == key)
+			return true;
+		else
+			return false;
+	}
+	bool IsKeyUp(CallbackArgs args, DWORD key)
+	{
+		if (args.Msg != WM_KEYUP)
+			return false;
+
+		if (key == NULL)
+			return true;
+
+		if (args.wParam == key)
+			return true;
+		else
+			return false;
+	}
+	bool IsCreate(CallbackArgs args)
+	{
+		if (args.Msg == WM_CREATE)
+			return true;
+		return false;
 	}
 
 	HWND* GetPointer()
