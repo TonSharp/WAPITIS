@@ -107,30 +107,6 @@ public:
 		sceneRenderer = renderer;
 
 		Init();
-		//ResizeScene(0, 0);
-		//Init();
-
-		/*PIXELFORMATDESCRIPTOR pd;
-		memset(&pd, 0, sizeof(PIXELFORMATDESCRIPTOR));
-
-		pd.nSize = sizeof(PIXELFORMATDESCRIPTOR);
-		pd.nVersion = 1;
-		pd.dwFlags = PFD_DRAW_TO_WINDOW | PFD_SUPPORT_OPENGL | PFD_DOUBLEBUFFER | flags;
-		pd.iPixelType = PFD_TYPE_RGBA;
-		pd.cColorBits = colorBits;
-		pd.cDepthBits = depthBits;
-
-		int iPixelFormat = ChoosePixelFormat(hDC, &pd);
-
-		PIXELFORMATDESCRIPTOR bestMatch_pd;
-		DescribePixelFormat(hDC, iPixelFormat, sizeof(pd), &bestMatch_pd);
-
-		SetPixelFormat(hDC, iPixelFormat, &pd);
-
-		hRC = wglCreateContext(hDC);
-		wglMakeCurrent(hDC, hRC);
-
-		sceneRenderer = renderer;*/
 	}
 
 	void Init()
