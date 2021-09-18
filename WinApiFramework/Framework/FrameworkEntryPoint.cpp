@@ -1,13 +1,34 @@
 ﻿#include "main.hpp"
+#include "UpdateCallbacks.hpp"
+
+void CallRenderCallbacks()
+{
+    if (UpdateCallback.size() > 0)
+        for (auto call : UpdateCallback)
+            call();
+}
 
 int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR IpszCmdLine, int nCmdShow)
 {
     _main_({ hInst, hPrevInst, IpszCmdLine, nCmdShow});
 
-    Msg* message = new Msg();
+    MSG msg;
 
-    while (message->Get())
-        message->Dispatch();
+    while (1)
+    {
+        while (PeekMessage(&msg, NULL, 0, 0, PM_NOREMOVE))
+        {
+            if (GetMessage(&msg, NULL, 0, 0))
+            {
+                TranslateMessage(&msg);
+                DispatchMessage(&msg);
+            }
+            else
+                return TRUE;
+        }
 
-    return message->wParam();
+        CallRenderCallbacks();
+    }
+
+    return msg.wParam;
 }

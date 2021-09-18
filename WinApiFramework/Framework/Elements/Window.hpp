@@ -188,6 +188,32 @@ public:
 		
 		return false;
 	}
+	bool IsKeyDown(CallbackArgs args, DWORD key)
+	{
+		if (args.Msg != WM_KEYDOWN)
+			return false;
+
+		if (key == NULL)
+			return true;
+
+		if (args.wParam == key)
+			return true;
+		else
+			return false;
+	}
+	bool IsKeyUp(CallbackArgs args, DWORD key)
+	{
+		if (args.Msg != WM_KEYUP)
+			return false;
+
+		if (key == NULL)
+			return true;
+
+		if (args.wParam == key)
+			return true;
+		else
+			return false;
+	}
 	bool IsCreate(CallbackArgs args)
 	{
 		if (args.Msg == WM_CREATE)

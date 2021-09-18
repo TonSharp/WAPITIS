@@ -11,79 +11,88 @@ Window* wnd;
 GLContext* context;
 
 int MainCallback(CallbackArgs);
+
+void Update();
 void MainRenderer();
 
 float Angle = 1;
+float zPos = 0;
 
 int _main_(MainArgs args)
 {
     wnd = new Window(szTitle, &szMainClass, args);
-    wnd->CreateCustomWindow(NULL, GL_WINDOW, { 10, 10 }, { 500, 500 }, NULL, NULL, NULL, MainCallback);
+    wnd->CreateCustomWindow(NULL, GL_WINDOW, { 10, 10 }, { 800, 600 }, NULL, NULL, NULL, MainCallback);
 
     context = new GLContext(wnd, NULL, 16, 16, MainRenderer);
-    context->ClearColor(0, 0, 0, 255);
+
+    UpdateCallback.push_back(Update);
 
     return 0;
 }
 
 int MainCallback(CallbackArgs args)
 {
-    context->Render();
-
     if (Closing(args))
     {
         context->Destroy();
         Quit();
     }
 
-    if (wnd->IsCreate(args))
-    {
-        context->Init();
-    }
-
-    /*if (wnd->IsDraw(args))
-        context->Render();
-
     float width, height;
     if (wnd->IsResize(&width, &height, args))
-        context->ResizeScene(width, height);*/
+        context->ResizeScene(width, height);
+
+    if (wnd->IsKeyDown(args, VK_LEFT))
+        zPos -= 0.05;
+    if (wnd->IsKeyDown(args, VK_RIGHT))
+        zPos += 0.05;
 
 
     return 1;
 }
 
+void Update()
+{
+    context->Render();
+    Angle++;
+}
+
 void MainRenderer()
 {
-    // Очищаем буфер цвета и глубины
-    // чтобы старый (неповернутый) прямоугольник - стирался
     context->ClearBuffers(NULL);
+    glLoadIdentity();
 
-    glBegin(GL_TRIANGLES);
-    glVertex3f(0.0f, 1.0f, 0.0f);  // Вверх
-    glVertex3f(-1.0f, -1.0f, 0.0f);  // Слева снизу
-    glVertex3f(1.0f, -1.0f, 0.0f);  // Справа снизу
-    glEnd();
+    glTranslatef(0, 0, zPos - 3.5);
+    glRotatef(Angle, 1, 1, 1);
 
-    //glLoadIdentity();
+    DrawPolygon(
+        {
+            {-0.9, -1, 0},
+            {-0.9, 0, 0},
+            {0.9, 0, 0},
+            {0.9, -1, 0}
+        }, 
+        { 100, 100, 100, 255 }
+    );
 
-    // Поворачиваем сцену на угол Angle, по осям X (1.0), Y (1.0), но не Z (0.0)
-    //glRotatef(Angle, 1.0, 1.0, 0.0);
+    DrawPolygon(
+        {
+            {-1, 0, 0},
+            {0, 1, 0},
+            {1, 0, 0}
+        },
+        { 0, 255, 100, 255 }
+    );
 
-    //// Цвет прямоугольника - темно-зеленый:
-    //// R = 0/255   = 0
-    //// G = 127/255 = 0.5
-    //// B = 0/255   = 0
-    //glColor3f(0.0, 0.5, 0.0);
-
-    //// Рисование прямоугольника
-    //// высота: 1 половина высоты окна =                      1.0 ед.
-    //// ширина: 0.25 ширины окна = 0.5 половины ширины окна = 0.5 ед.
-    //glBegin(GL_POLYGON);
-    //glVertex2f(0, 0); // Левый-нижний угол
-    //glVertex2f(0, 1.0); // Левый-верхний угол
-    //glVertex2f(1, 1.0); // Правый-верхний угол
-    //glVertex2f(1, 0); // Правый-нижний угол
-    //glEnd();
+    DrawPolygon(
+        {
+            {-0.3, -0.6, 0.001},
+            {-0.3, -0.1, 0.001},
+            {0.3, -0.1, 0.001},
+            {0.3, -0.6, 0.001}
+        },
+        { 255, 255, 0, 255 }
+    );
 
     if(context != NULL)
         SwapBuffers(context->HDC());

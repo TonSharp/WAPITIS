@@ -62,10 +62,13 @@
     <ClInclude Include="Framework\Elements\UI\Menu\MenuItem.hpp">
       <Filter>WinAPI\UI\Menu</Filter>
     </ClInclude>
-    <ClInclude Include="Framework\OpenGL\GLInit.hpp">
+    <ClInclude Include="Framework\OpenGL\GLLibs.hpp">
       <Filter>OpenGL</Filter>
     </ClInclude>
-    <ClInclude Include="Framework\OpenGL\GLLibs.hpp">
+    <ClInclude Include="Framework\UpdateCallbacks.hpp">
+      <Filter>OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\OpenGL\GLContext.hpp">
       <Filter>OpenGL</Filter>
     </ClInclude>
   </ItemGroup>
