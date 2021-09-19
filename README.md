@@ -2,13 +2,13 @@
 
 # Содержание
 
- 1. [О фреймворке](#open-wapi)
+ 1. [О фреймворке](#wapitis)
  2. [Установка для Visual Studio](#setup-guide-for-visual-studio)
  3. [Установка для VS Code](#setup-guide-for-vs-code)
  4. [Документация](#documentation)
  5. [Обратная связь](#feedback)
 
-# Open WAPI
+# WAPITIS
 WinAPI To Its Slightest- это фреймворк для Win32API с открытым исходным кодом, который призван упростить работу с API, предоставляемым Windows, для разработки классических приложений. WAPITIS позволяет с легкостью создавать окна и элементы интерфейса, настраивать и обрабатывать их. 
 В планах развития добавить поддержку OpenGL для простого написания курсовой работы.
 
@@ -37,7 +37,7 @@ WinAPI To Its Slightest- это фреймворк для Win32API с откры
 </div>
 <hr>
 
-- __Перейдите на вкладку [`Releases`](https://github.com/TonSharp/OpenWAPI/releases) в репозитории.__
+- __Перейдите на вкладку [`Releases`](https://github.com/TonSharp/WAPITIS/releases) в репозитории.__
 <div align=center>
  <img src="Images/5.png?raw=true"</img>
 </div>
