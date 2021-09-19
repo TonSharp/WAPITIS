@@ -77,7 +77,7 @@ WinAPI To Its Slightest- это фреймворк для Win32API с откры
 
 # Setup guide for VS Code
 Для работы с WAPITIS непосредственно в VS Code вам понадобится установить расширение "C/C++" из каталога расширений и установить компилятор GCC и дебаггер GDB из MinGW по этой инструкции: https://code.visualstudio.com/docs/cpp/config-mingw.
-**ВАЖНО**: Не пропустите ЧЕТВЕРТЫЙ пункт из руководства выше!
+> **ВАЖНО**: Не пропустите ЧЕТВЕРТЫЙ пункт из руководства выше!
 
 - __Запустите Visual Studio Code и нажмите Open Folder__
 <div align=center>
@@ -118,7 +118,7 @@ WinAPI To Its Slightest- это фреймворк для Win32API с откры
 Откройте файл main.hpp, где вы будете писать свой код. Компиляция программы является _Default Build Task (Ctrl+Shift+B)_, а запуск и отладка программы / запуск без отладки – _F5 / Ctrl+F5_ соответственно.
 
 # Documentation
-Документацию о всех поддерживаемых функциях фреймворка ищите на [Wiki](https://github.com/TonSharp/OpenWAPI/wiki/Overview) в GitHub.
+Документацию о всех поддерживаемых функциях фреймворка ищите на [Wiki](https://github.com/TonSharp/WAPITIS/wiki/Overview) в GitHub.
 
 # Feedback
-Любые пожелания, просьбы и заметки о найденных багах оставлять в разделе [Issues](https://github.com/TonSharp/OpenWAPI/issues) на GitHub
+Любые пожелания, просьбы и заметки о найденных багах оставлять в разделе [Issues](https://github.com/TonSharp/WAPITIS/issues) на GitHub
