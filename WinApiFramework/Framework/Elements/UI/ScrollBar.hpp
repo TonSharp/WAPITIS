@@ -36,7 +36,7 @@ public:
 		DWORD direction = LOWORD(wParam);
 
 		if (direction != SB_THUMBPOSITION)
-			SendMessage(ui->Get(), WM_VSCROLL, MAKEWPARAM(direction, NULL), NULL);
+			SendMessage(ui->Get(), WM_VSCROLL, MAKEWPARAM(direction, NULL), 0);
 
 		SetScrollPosition(HIWORD(wParam));
 	}

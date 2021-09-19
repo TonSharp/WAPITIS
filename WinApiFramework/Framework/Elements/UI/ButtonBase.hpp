@@ -19,7 +19,7 @@ public:
 		if (this == nullptr)
 			return;
 
-		SendMessage(wnd, BM_SETSTATE, state, NULL);
+		SendMessage(wnd, BM_SETSTATE, state, 0);
 	}
 
 	virtual void SetCheck(bool check)
@@ -32,7 +32,7 @@ public:
 		if (check)
 			val = 1;
 
-		SendMessage(wnd, BM_SETCHECK, val, NULL);
+		SendMessage(wnd, BM_SETCHECK, val, 0);
 	}
 
 	virtual bool IsChecked()
@@ -40,7 +40,7 @@ public:
 		if (this == nullptr)
 			return false;
 
-		WORD res = (WORD)SendMessage(wnd, BM_GETCHECK, NULL, NULL);
+		WORD res = (WORD)SendMessage(wnd, BM_GETCHECK, 0, 0);
 
 		if (res == 0 || res == 2)
 			return false;

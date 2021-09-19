@@ -55,8 +55,8 @@ public:
 		wndClass.lpfnWndProc = WndProc;
 		wndClass.lpszMenuName = NULL;
 		wndClass.lpszClassName = szClassName.c_str();
-		wndClass.cbWndExtra = NULL;
-		wndClass.cbClsExtra = NULL;
+		wndClass.cbWndExtra = 0;
+		wndClass.cbClsExtra = 0;
 		wndClass.hIcon = LoadIcon(NULL, IDI_WINLOGO);
 		wndClass.hIconSm = LoadIcon(NULL, IDI_WINLOGO);
 		wndClass.hCursor = LoadCursor(NULL, IDC_ARROW);

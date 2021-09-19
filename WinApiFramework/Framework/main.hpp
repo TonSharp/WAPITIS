@@ -21,9 +21,9 @@ float zPos = 0;
 int _main_(MainArgs args)
 {
     wnd = new Window(szTitle, &szMainClass, args);
-    wnd->CreateCustomWindow(NULL, GL_WINDOW, { 10, 10 }, { 800, 600 }, NULL, NULL, NULL, MainCallback);
+    wnd->CreateCustomWindow(0, GL_WINDOW, { 10, 10 }, { 800, 600 }, NULL, NULL, NULL, MainCallback);
 
-    context = new GLContext(wnd, NULL, 16, 16, MainRenderer);
+    context = new GLContext(wnd, 0, 16, 16, MainRenderer);
 
     UpdateCallback.push_back(Update);
 
@@ -59,7 +59,7 @@ void Update()
 
 void MainRenderer()
 {
-    context->ClearBuffers(NULL);
+    context->ClearBuffers(0);
     glLoadIdentity();
 
     glTranslatef(0, 0, zPos - 3.5);

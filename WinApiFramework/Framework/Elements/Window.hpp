@@ -78,10 +78,8 @@ public:
 			className->c_str(),
 			caption.c_str(),
 			WS_OVERLAPPEDWINDOW,
-			CW_USEDEFAULT,
-			NULL,
-			CW_USEDEFAULT,
-			NULL,
+			CW_USEDEFAULT, 0,
+			CW_USEDEFAULT, 0,
 			parent,
 			NULL,
 			mainArgs.hInstance,
@@ -193,7 +191,7 @@ public:
 		if (args.Msg != WM_KEYDOWN)
 			return false;
 
-		if (key == NULL)
+		if (key == 0)
 			return true;
 
 		if (args.wParam == key)
@@ -206,7 +204,7 @@ public:
 		if (args.Msg != WM_KEYUP)
 			return false;
 
-		if (key == NULL)
+		if (key == 0)
 			return true;
 
 		if (args.wParam == key)
