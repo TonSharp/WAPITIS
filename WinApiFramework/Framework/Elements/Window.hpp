@@ -47,6 +47,7 @@ private:
 
 public:
 
+	// Window class.
 	Window(wstring caption, wstring* className, MainArgs args)
 	{
 		mainArgs = args;
@@ -58,19 +59,21 @@ public:
 		wnd->InitDefaulClass(args.hInstance);
 	}
 
-	bool RegisterClass()
+	// Returns a registered class.
+	bool RegClass()
 	{
 		if (isClassRegistered)
 			return false;
-		
+
 		isClassRegistered = wnd->Register();
 		return isClassRegistered;
 	}
 
+	// Creates an empty resizeable window. Mostly useful for testing purposes.
 	bool CreateDefaultWindow(HWND parent, int (*callback)(CallbackArgs args))
 	{
 		if (!isClassRegistered)
-			RegisterClass();
+			RegClass();
 
 		DestroyWindow(hWnd);
 
@@ -91,10 +94,11 @@ public:
 		return RegisterWindow();
 	}
 
+	// Creates a window with specified parameters.
 	bool CreateCustomWindow(DWORD extentedStyle, DWORD style, Transform pos, Transform size, HWND parent, HMENU menu, LPVOID lParam, int (*callback)(CallbackArgs args))
 	{
 		if (!isClassRegistered)
-			RegisterClass();
+			RegClass();
 
 		DestroyWindow(hWnd);
 
@@ -118,24 +122,29 @@ public:
 		return RegisterWindow();
 	}
 
+	// Makes the window active.
 	void Enable()
 	{
 		EnableWindow(hWnd, true);
 	}
+	// Makes the window inactive.
 	void Disable()
 	{
 		EnableWindow(hWnd, false);
 	}
+	// Enables (disables) the window so it can (not) be used.
 	void SetEnableState(bool state)
 	{
 		EnableWindow(hWnd, state);
 	}
 
+	// Sets window’s caption.
 	void SetCaption(wstring newCaption)
 	{
 		caption = newCaption;
 		SetWindowText(hWnd, caption.c_str());
 	}
+	// Sets the window’s background color.
 	void SetBackgroundColor(COLORREF color)
 	{
 		if(!isClassRegistered)
@@ -148,25 +157,30 @@ public:
 		}
 	}
 
+	// Shows the window on screen.
 	void Show()
 	{
 		ShowWindow(hWnd, mainArgs.nCmdShow);
 		Update();
 	}
+	// Updates the client area of the window.
 	void Update()
 	{
 		UpdateWindow(hWnd);
 	}
 
+	// Prepares the window for painting.
 	void StartDraw()
 	{
 		BeginPaint(hWnd, &ps);
 	}
+	// Marks the end of painting in the window.
 	void StopDraw()
 	{
 		EndPaint(hWnd, &ps);
 	}
 
+	// Returns true if painting is in process.
 	bool IsDraw(CallbackArgs args)
 	{
 		if (args.Msg == WM_PAINT)
@@ -174,6 +188,7 @@ public:
 		else
 			return false;
 	}
+	// Returns true if the window is being resized.
 	bool IsResize(float* width, float* height, CallbackArgs args)
 	{
 		if (args.Msg == WM_SIZE)
@@ -183,9 +198,10 @@ public:
 
 			return true;
 		}
-		
+
 		return false;
 	}
+	// Returns true if a specified key is pressed.
 	bool IsKeyDown(CallbackArgs args, DWORD key)
 	{
 		if (args.Msg != WM_KEYDOWN)
@@ -199,6 +215,7 @@ public:
 		else
 			return false;
 	}
+	// Returns true if a specified key is released.
 	bool IsKeyUp(CallbackArgs args, DWORD key)
 	{
 		if (args.Msg != WM_KEYUP)
@@ -212,6 +229,7 @@ public:
 		else
 			return false;
 	}
+	// Returns true if window is created.
 	bool IsCreate(CallbackArgs args)
 	{
 		if (args.Msg == WM_CREATE)
@@ -219,14 +237,17 @@ public:
 		return false;
 	}
 
+	// Returns a pointer to the window.
 	HWND* GetPointer()
 	{
 		return &hWnd;
 	}
+	// Returns window as HWND.
 	HWND Get()
 	{
 		return hWnd;
 	}
+	// Returns a pointer to the window’s class.
 	WindowClass* GetClassPointer()
 	{
 		return wnd;

@@ -29,6 +29,7 @@ protected:
 
 public:
 
+	// UI class.
 	UI(wstring text, Window* parent, HINSTANCE hInstance)
 	{
 		this->text = text;
@@ -39,17 +40,20 @@ public:
 		this->hInstance = hInstance;
 	}
 
+	// Adds vertical scroll to the window.
 	virtual void AddVScroll()
 	{
 		localStyle |= WS_VSCROLL;
 		vScroll = true;
 	}
+	// Adds horizontal scroll to the window.
 	virtual void AddHScroll()
 	{
 		localStyle |= WS_HSCROLL;
 		hScroll = true;
 	}
 
+	// Changes the text of the window’s title bar.
 	virtual void SetText(wstring text)
 	{
 		SetWindowText(wnd, text.c_str());
@@ -59,6 +63,7 @@ public:
 	{
 	}
 
+	// Returns true if the window has a context menu.
 	bool IsContextMenu(CallbackArgs args)
 	{
 		if (args.Msg == WM_CONTEXTMENU && (HWND)args.wParam == wnd)

@@ -9,53 +9,64 @@ class ComboBox : public UI
 {
 public:
 
+	// Combo box class.
 	ComboBox(wstring text, Window* parent, HINSTANCE hInstance) : UI(text, parent, hInstance)	
 	{
 	}
 
+	// Shows a disabled horizontal or vertical scroll bar when the combo box does not contain enough items to scroll.
 	void DisableNOScroll()
 	{
 		localStyle |= CBS_DISABLENOSCROLL;
 	}
 
+	// Creates a combo box.
 	void Create(DWORD style, Transform pos, Transform size) override
 	{
 		wnd = CreateWindow(L"combobox", NULL, WS_CHILD | WS_VISIBLE | CBS_DROPDOWN | style | localStyle, pos.x, pos.y, size.x, size.y, wndParent->Get(), NULL, hInstance, NULL);
 	}
 
+	// Adds an element to the combo box.
 	void AddElement(wstring str)
 	{
 		SendMessage(wnd, CB_ADDSTRING, 0, (LPARAM)str.c_str());
 	}
+	// Adds several elements to the combo box.
 	void AddRange(vector<wstring> data)
 	{
 		for (int i = 0; i < data.size(); i++)
 			AddElement(data.at(i));
 	}
 
+	// Removes an element by its index.
 	void RemoveElementByIndex(int index)
 	{
 		SendMessage(wnd, CB_DELETESTRING, index, 0L);
 	}
+	// Removes currently selected element.
 	void RemoveSelectedElement()
 	{
 		RemoveElementByIndex(GetSelectedIndex());
 	}
+	// Clears the combo box.
 	void Clear()
 	{
 		SendMessage(wnd, CB_RESETCONTENT, 0, 0L);
 	}
 
+	// Selects an element from the combo box.
 	void SelectItem(int index)
 	{
 		SendMessage(wnd, CB_SETCURSEL, index, 0L);
 	}
 
+	// Returns selected element’s index.
 	int GetSelectedIndex()
 	{
 		return (int)SendMessage(wnd, CB_GETCURSEL, 0, 0L);
 	}
 	
+	// Returns text from an element by its index.
 	wstring GetStringByIndex(int index)
 	{
 		wchar_t buff[512];
@@ -66,16 +77,19 @@ public:
 		return str;
 	}
 
+	// Returns text from selected element.
 	wstring GetSelectedText()
 	{
 		return GetStringByIndex(GetSelectedIndex());
 	}
 
+	// Returns the number of elements in the combo box.
 	int GetCount()
 	{
 		return (int)SendMessage(wnd, CB_GETCOUNT, 0, 0L);
 	}
 
+	// Returns true if selected element has changed.
 	bool IsSelectChanged(CallbackArgs args)
 	{
 		if (args.Msg != WM_COMMAND)
@@ -86,6 +100,7 @@ public:
 
 		return false;
 	}
+	// Returns true if an element was clicked twice.
 	bool IsDoubleClick(CallbackArgs args)
 	{
 		if (args.Msg != WM_COMMAND)
