@@ -3,16 +3,17 @@
 # Содержание
 
  1. [О фреймворке](#wapitis)
- 2. [Установка для Visual Studio](#setup-guide-for-visual-studio)
- 3. [Установка для VS Code](#setup-guide-for-vs-code)
- 4. [Документация](#documentation)
- 5. [Обратная связь](#feedback)
+ 2. [Установка для Visual Studio](#visual-studio-setup-guide)
+ 3. [Установка для VS Code](#vs-code-setup-guide)
+ 4. [Установка OpenGL](#opengl-setup-guide)
+ 5. [Документация](#documentation)
+ 6. [Обратная связь](#feedback)
 
 # WAPITIS
 WinAPI To Its Slightest- это фреймворк для Win32API с открытым исходным кодом, который призван упростить работу с API, предоставляемым Windows, для разработки классических приложений. WAPITIS позволяет с легкостью создавать окна и элементы интерфейса, настраивать и обрабатывать их. 
 В планах развития добавить поддержку OpenGL для простого написания курсовой работы.
 
-# Setup guide for Visual Studio
+# Visual Studio setup guide
 - __Откройте Visual studio, создайте новый проект с типом "Классическое приложение Windows".__
 <div align=center>
  <img src="Images/1.png?raw=true"</img>
@@ -73,9 +74,9 @@ WinAPI To Its Slightest- это фреймворк для Win32API с откры
 </div>
 <hr>
 
-- __Пишите свой код в файле `main.hpp`.__
+Откройте файл `main.hpp`, где вы будете писать свой код.
 
-# Setup guide for VS Code
+# VS Code setup guide
 Для работы с WAPITIS непосредственно в VS Code вам понадобится установить расширение "C/C++" из каталога расширений и установить компилятор GCC и дебаггер GDB из MinGW по этой инструкции: https://code.visualstudio.com/docs/cpp/config-mingw.
 > **ВАЖНО**: Не пропустите ЧЕТВЕРТЫЙ пункт из руководства выше!
 
@@ -116,6 +117,41 @@ WinAPI To Its Slightest- это фреймворк для Win32API с откры
 <hr>
 
 Откройте файл main.hpp, где вы будете писать свой код. Компиляция программы является _Default Build Task (Ctrl+Shift+B)_, а запуск и отладка программы / запуск без отладки – _F5 / Ctrl+F5_ соответственно.
+
+# OpenGL setup guide
+Опциональная установка поддержки OpenGL.
+
+- __После установки WAPITITS снова перейдите на вкладку [`Releases`](https://github.com/TonSharp/OpenWAPI/releases) в репозитории.__
+<div align=center>
+ <img src="Images/5.png?raw=true"</img>
+</div>
+<hr>
+
+- __В самом новом релизе скачайте архив `OpenGL.zip`.__
+<div align=center>
+ <img src="Images/OpenGL1.png?raw=true"</img>
+</div>
+<hr>
+
+- __Распакуйте архив и перенесите содержимое в папку с проектом.__
+<div align=center>
+ <img src="Images/OpenGL2.png?raw=true"</img>
+</div>
+<hr>
+
+- __Нажмите «Заменить файл в папке назначения».__
+<div align=center>
+ <img src="Images/OpenGL3.png?raw=true"</img>
+</div>
+<hr>
+
+- __В итоге проект должен выглядеть так:__
+<div align=center>
+ <img src="Images/OpenGL4.png?raw=true"</img>
+</div>
+<hr>
+
+Откройте файл main.hpp, где вы будете писать свой код.
 
 # Documentation
 Документацию о всех поддерживаемых функциях фреймворка ищите на [Wiki](https://github.com/TonSharp/WAPITIS/wiki/Overview) в GitHub.
