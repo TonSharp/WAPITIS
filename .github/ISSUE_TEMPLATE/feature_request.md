@@ -1,20 +1,14 @@
 ---
-name: Feature request
-about: Suggest an idea for this project
+name: Запрос на фичи
+about: Запрос на добавление новых фич и функций в фреймворк
 title: ''
-labels: ''
+labels: 'enhancment'
 assignees: ''
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+**Ваш запрос связан с какой-то проблемой? Опишите.**
+Чистое и понятное обьяснение что это за фича или функция, и для чего она нужна.
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
-
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
-
-**Additional context**
-Add any other context or screenshots about the feature request here.
+**Дополнительная информация**
+Любая дополнительная информация.
