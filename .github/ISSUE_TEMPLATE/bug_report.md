@@ -1,38 +1,26 @@
 ---
-name: Bug report
-about: Create a report to help us improve
+name: Баг репорт
+about: Сообщите о проблеме, что бы мы могли ее исправить
 title: ''
-labels: ''
+labels: 'bug'
 assignees: ''
 
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+**Опишите**
+Опишите что это за баг.
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+**Воспроизведение**
+Опишите то, как вы наткнулись на этот баг
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+**Ожидаемое поведение**
+Опишите, что вы ожидали получить, до того, как появился баг.
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+**Скриншоты**
+Если есть возможность, прикрепите скриншоты вашей проблемы.
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+**IDE (опишите следующее):**
+- Ваша среда разработки (Visual Studio, Dev C++, и т.д.)
 
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
-
-**Additional context**
+**Дополнительная информация**
 Add any other context about the problem here.
