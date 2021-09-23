@@ -11,5 +11,3 @@
 
 #include "Elements/UI/UILibs.hpp"
 #include "Elements/UI/Menu/Menu.hpp"
-
-#include "../OpenGL/GLLibs.hpp"
