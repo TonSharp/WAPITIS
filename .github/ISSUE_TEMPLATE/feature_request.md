@@ -2,7 +2,7 @@
 name: Запрос на фичи
 about: Запрос на добавление новых фич и функций в фреймворк
 title: ''
-labels: 'enhancment'
+labels: 'enhancement'
 assignees: ''
 
 ---
