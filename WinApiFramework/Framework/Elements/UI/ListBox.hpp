@@ -64,7 +64,7 @@ public:
 		SendMessage(wnd, LB_SETCURSEL, index, 0L);
 	}
 	// Selects several items from the list box.
-	void SelectItem(int startIndex, int endIndex)
+	void SelectItems(int startIndex, int endIndex)
 	{
 		SendMessage(wnd, LB_SELITEMRANGE, TRUE, MAKELPARAM(startIndex, endIndex));
 	}
