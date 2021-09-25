@@ -89,7 +89,7 @@ public:
 		return (int)SendMessage(wnd, CB_GETCOUNT, 0, 0L);
 	}
 
-	// Returns true if selected item has changed.
+	// Returns true if another item was selected.
 	bool IsSelectChanged(CallbackArgs args)
 	{
 		if (args.Msg != WM_COMMAND)
