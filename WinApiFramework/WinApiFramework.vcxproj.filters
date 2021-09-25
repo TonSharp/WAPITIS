@@ -44,9 +44,6 @@
     <ClInclude Include="Framework\Elements\UI\RadioButton.hpp">
       <Filter>WinAPI\UI</Filter>
     </ClInclude>
-    <ClInclude Include="Framework\Elements\UI\ScrollBar.hpp">
-      <Filter>WinAPI\UI</Filter>
-    </ClInclude>
     <ClInclude Include="Framework\Elements\UI\Text.hpp">
       <Filter>WinAPI\UI</Filter>
     </ClInclude>

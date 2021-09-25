@@ -32,7 +32,6 @@
     <ClInclude Include="Framework\Elements\UI\Menu\Menu.hpp" />
     <ClInclude Include="Framework\Elements\UI\Menu\MenuItem.hpp" />
     <ClInclude Include="Framework\Elements\UI\RadioButton.hpp" />
-    <ClInclude Include="Framework\Elements\UI\ScrollBar.hpp" />
     <ClInclude Include="Framework\Elements\UI\Text.hpp" />
     <ClInclude Include="Framework\Elements\UI\UI.hpp" />
     <ClInclude Include="Framework\Elements\UI\UILibs.hpp" />
