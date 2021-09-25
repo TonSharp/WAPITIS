@@ -40,9 +40,9 @@
     <ClInclude Include="Framework\Elements\WindowClass.hpp" />
     <ClInclude Include="Framework\libs.hpp" />
     <ClInclude Include="Framework\main.hpp" />
-    <ClInclude Include="Framework\OpenGL\GLContext.hpp" />
-    <ClInclude Include="Framework\OpenGL\GLLibs.hpp" />
     <ClInclude Include="Framework\UpdateCallbacks.hpp" />
+    <ClInclude Include="OpenGL\GLContext.hpp" />
+    <ClInclude Include="OpenGL\GLLibs.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\FrameworkEntryPoint.cpp" />

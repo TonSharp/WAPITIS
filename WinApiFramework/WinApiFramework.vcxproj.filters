@@ -68,7 +68,7 @@
     <ClInclude Include="Framework\UpdateCallbacks.hpp">
       <Filter>OpenGL</Filter>
     </ClInclude>
-    <ClInclude Include="Framework\OpenGL\GLContext.hpp">
+    <ClInclude Include="OpenGL\GLContext.hpp">
       <Filter>OpenGL</Filter>
     </ClInclude>
   </ItemGroup>
