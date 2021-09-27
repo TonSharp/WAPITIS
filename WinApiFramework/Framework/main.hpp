@@ -1,14 +1,20 @@
 ﻿#pragma once
 #include "libs.hpp"
 
+
 //Сюда добавляйте свои библиотеки:
 
 wstring szMainClass = L"MainClass";
 wstring szTitle = L"Title";
 
 Window* wnd;
+GLContext* context;
+
+int Angle, zPos;
 
 int MainCallback(CallbackArgs);
+void Update();
+void MainRenderer();
 
 int _main_(MainArgs args)
 {

@@ -5,7 +5,7 @@
 #include <Windows.h>
 #include <vector>
 
-#include "../Elements/Window.hpp"
+#include "../Framework/Elements/Window.hpp"
 #include "Libs/OpenGL.hpp"
 
 struct GLColor
