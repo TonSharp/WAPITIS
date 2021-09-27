@@ -11,5 +11,3 @@
 
 #include "ListBox.hpp"
 #include "ComboBox.hpp"
-
-#include "ScrollBar.hpp"

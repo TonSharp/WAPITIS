@@ -14,6 +14,7 @@ public:
 	{
 	}
 
+	// Sets highlight state of a button. The highlight state indicates whether the button is highlighted as if the user had pushed it.
 	virtual void SetState(bool state)
 	{
 		if (this == nullptr)
@@ -22,6 +23,7 @@ public:
 		SendMessage(wnd, BM_SETSTATE, state, 0);
 	}
 
+	// Sets the check state of a radio button or check box.
 	virtual void SetCheck(bool check)
 	{
 		if (this == nullptr)
@@ -35,6 +37,7 @@ public:
 		SendMessage(wnd, BM_SETCHECK, val, 0);
 	}
 
+	// Returns true if radio button or check box is checked.
 	virtual bool IsChecked()
 	{
 		if (this == nullptr)
@@ -48,6 +51,7 @@ public:
 			return true;
 	}
 
+	// Returns true if the button is clicked.
 	virtual bool IsClicked(CallbackArgs args)
 	{
 		if (this == nullptr)

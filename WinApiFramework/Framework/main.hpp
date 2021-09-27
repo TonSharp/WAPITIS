@@ -8,15 +8,7 @@ wstring szTitle = L"Title";
 
 Window* wnd;
 
-GLContext* context;
-
 int MainCallback(CallbackArgs);
-
-void Update();
-void MainRenderer();
-
-float Angle = 1;
-float zPos = 0;
 
 int _main_(MainArgs args)
 {
@@ -36,20 +28,8 @@ int MainCallback(CallbackArgs args)
 {
     if (Closing(args))
     {
-        context->Destroy();
         Quit();
     }
-
-    float width, height;
-    if (wnd->IsResize(&width, &height, args))
-        context->ResizeScene(width, height);
-
-    if (wnd->IsKeyDown(args, VK_LEFT))
-        zPos -= 0.05;
-    if (wnd->IsKeyDown(args, VK_RIGHT))
-        zPos += 0.05;
-
-
     return 1;
 }
 
@@ -72,31 +52,3 @@ void MainRenderer()
     if(context != NULL)
         SwapBuffers(context->HDC());
 }
-//#pragma once
-//#include "libs.hpp"
-//
-//wstring szMainClass = L"MainClass";
-//wstring szTitle = L"Laba 3";
-//
-//ListBox* list;
-//
-//int MainCallback(CallbackArgs args);
-//
-//int _main_(MainArgs args)
-//{
-//	Window* wnd = new Window(szTitle, &szMainClass, args);
-//	wnd->CreateDefaultWindow(NULL, MainCallback);
-//
-//	list = new ListBox(L"", wnd, args.hInstance, false);
-//	list->Create(BORDER, { 10, 10 }, { 100, 100 });
-//	list->AddVScroll();
-//
-//	return 0;
-//}
-//
-//int MainCallback(CallbackArgs args)
-//{
-//	if (Closing(args))
-//		Quit();
-//	return 1;
-//}

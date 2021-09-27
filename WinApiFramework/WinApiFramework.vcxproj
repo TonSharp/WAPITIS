@@ -32,7 +32,6 @@
     <ClInclude Include="Framework\Elements\UI\Menu\Menu.hpp" />
     <ClInclude Include="Framework\Elements\UI\Menu\MenuItem.hpp" />
     <ClInclude Include="Framework\Elements\UI\RadioButton.hpp" />
-    <ClInclude Include="Framework\Elements\UI\ScrollBar.hpp" />
     <ClInclude Include="Framework\Elements\UI\Text.hpp" />
     <ClInclude Include="Framework\Elements\UI\UI.hpp" />
     <ClInclude Include="Framework\Elements\UI\UILibs.hpp" />
@@ -40,10 +39,9 @@
     <ClInclude Include="Framework\Elements\WindowClass.hpp" />
     <ClInclude Include="Framework\libs.hpp" />
     <ClInclude Include="Framework\main.hpp" />
-    <ClInclude Include="Framework\OpenGL\GLContext.hpp" />
-    <ClInclude Include="Framework\OpenGL\GLLibs.hpp" />
-    <ClInclude Include="Framework\OpenGL\Libs\OpenGL.hpp" />
     <ClInclude Include="Framework\UpdateCallbacks.hpp" />
+    <ClInclude Include="OpenGL\GLContext.hpp" />
+    <ClInclude Include="OpenGL\GLLibs.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\FrameworkEntryPoint.cpp" />

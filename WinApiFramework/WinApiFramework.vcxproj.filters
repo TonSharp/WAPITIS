@@ -44,9 +44,6 @@
     <ClInclude Include="Framework\Elements\UI\RadioButton.hpp">
       <Filter>WinAPI\UI</Filter>
     </ClInclude>
-    <ClInclude Include="Framework\Elements\UI\ScrollBar.hpp">
-      <Filter>WinAPI\UI</Filter>
-    </ClInclude>
     <ClInclude Include="Framework\Elements\UI\Text.hpp">
       <Filter>WinAPI\UI</Filter>
     </ClInclude>
@@ -68,7 +65,7 @@
     <ClInclude Include="Framework\UpdateCallbacks.hpp">
       <Filter>OpenGL</Filter>
     </ClInclude>
-    <ClInclude Include="Framework\OpenGL\GLContext.hpp">
+    <ClInclude Include="OpenGL\GLContext.hpp">
       <Filter>OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="Framework\OpenGL\Libs\OpenGL.hpp">
