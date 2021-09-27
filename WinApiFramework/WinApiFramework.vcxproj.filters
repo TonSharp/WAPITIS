@@ -71,6 +71,9 @@
     <ClInclude Include="Framework\OpenGL\GLContext.hpp">
       <Filter>OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="Framework\OpenGL\Libs\OpenGL.hpp">
+      <Filter>OpenGL\Libs</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="WinAPI">
@@ -84,6 +87,9 @@
     </Filter>
     <Filter Include="OpenGL">
       <UniqueIdentifier>{ac82ecfe-4494-4e46-a6b2-4da223a26ae2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OpenGL\Libs">
+      <UniqueIdentifier>{aa88eb4d-3994-4905-8a9e-4ab9a63cb0ac}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

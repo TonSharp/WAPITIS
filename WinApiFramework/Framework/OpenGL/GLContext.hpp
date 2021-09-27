@@ -6,6 +6,7 @@
 #include <vector>
 
 #include "../Elements/Window.hpp"
+#include "Libs/OpenGL.hpp"
 
 struct GLColor
 {
@@ -48,14 +49,87 @@ RGBAColor GLToRGB(GLColor color)
 void DrawPolygon(vector<Vertex> vertexes, RGBAColor color)
 {
 	GLColor clr = RGBToGL(color);
-
 	glColor3f(clr.R, clr.G, clr.B);
+
 	glBegin(GL_POLYGON);
 
 	for (auto &vert : vertexes)
 		glVertex3f(vert.X, vert.Y, vert.Z);
 
 	glEnd();
+}
+
+void DrawTriangles(vector<Vertex> vertexes, RGBAColor color)
+{
+	GLColor clr = RGBToGL(color);
+	glColor3f(clr.R, clr.G, clr.B);
+
+	glBegin(GL_POLYGON);
+
+	for (auto& vert : vertexes)
+		glVertex3f(vert.X, vert.Y, vert.Z);
+
+	glEnd();
+}
+
+void DrawQuads(vector<Vertex> vertexes, RGBAColor color)
+{
+	GLColor clr = RGBToGL(color);
+	glColor3f(clr.R, clr.G, clr.B);
+
+	glBegin(GL_QUADS);
+
+	for (auto& vert : vertexes)
+		glVertex3f(vert.X, vert.Y, vert.Z);
+
+	glEnd();
+}
+
+void DrawBox(Vertex center, float width, float height, float depth, RGBAColor color)
+{
+	//Bottom
+	DrawQuads(
+		{
+			{center.X - width / 2, center.Y - height / 2, center.Z - height / 2},
+			{center.X - width / 2, center.Y - height / 2, center.Z + height / 2},
+			{center.X + width / 2, center.Y - height / 2, center.Z + height / 2},
+			{center.X + width / 2, center.Y - height / 2, center.Z - height / 2}
+		},
+		color
+	);
+
+	//Top
+	DrawQuads(
+		{
+			{center.X - width / 2, center.Y + height / 2, center.Z - height / 2},
+			{center.X - width / 2, center.Y + height / 2, center.Z + height / 2},
+			{center.X + width / 2, center.Y + height / 2, center.Z + height / 2},
+			{center.X + width / 2, center.Y + height / 2, center.Z - height / 2}
+		},
+		color
+	);
+
+	//Front
+	DrawQuads(
+		{
+			{center.X - width / 2, center.Y - height / 2, center.Z - height / 2},
+			{center.X - width / 2, center.Y + height / 2, center.Z - height / 2},
+			{center.X + width / 2, center.Y + height / 2, center.Z - height / 2},
+			{center.X + width / 2, center.Y - height / 2, center.Z - height / 2}
+		},
+		color
+	);
+
+	//Rear
+	DrawQuads(
+		{
+			{center.X - width / 2, center.Y - height / 2, center.Z + height / 2},
+			{center.X - width / 2, center.Y + height / 2, center.Z + height / 2},
+			{center.X + width / 2, center.Y + height / 2, center.Z + height / 2},
+			{center.X + width / 2, center.Y - height / 2, center.Z + height / 2}
+		},
+		color
+	);
 }
 
 class GLContext
@@ -106,7 +180,16 @@ public:
 
 		sceneRenderer = renderer;
 
+		glEnable(GL_LIGHTING);
 		Init();
+	}
+
+	void AddAmbienLight(RGBAColor color)
+	{
+		GLColor clr = RGBToGL(color);
+		float params[4] = { clr.R, clr.B, clr.G, clr.A };
+
+		glLightModelfv(GL_LIGHT_MODEL_AMBIENT, params);
 	}
 
 	void Init()

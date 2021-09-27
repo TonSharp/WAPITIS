@@ -42,6 +42,7 @@
     <ClInclude Include="Framework\main.hpp" />
     <ClInclude Include="Framework\OpenGL\GLContext.hpp" />
     <ClInclude Include="Framework\OpenGL\GLLibs.hpp" />
+    <ClInclude Include="Framework\OpenGL\Libs\OpenGL.hpp" />
     <ClInclude Include="Framework\UpdateCallbacks.hpp" />
   </ItemGroup>
   <ItemGroup>

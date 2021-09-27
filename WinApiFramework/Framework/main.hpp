@@ -24,6 +24,8 @@ int _main_(MainArgs args)
     wnd->CreateCustomWindow(0, GL_WINDOW, { 10, 10 }, { 800, 600 }, NULL, NULL, NULL, MainCallback);
 
     context = new GLContext(wnd, 0, 16, 16, MainRenderer);
+    context->AddAmbienLight({ 255, 255, 255, 255 });
+    glEnable(GL_LIGHT0);
 
     UpdateCallback.push_back(Update);
 
@@ -63,37 +65,38 @@ void MainRenderer()
     glLoadIdentity();
 
     glTranslatef(0, 0, zPos - 3.5);
-    glRotatef(Angle, 1, 1, 1);
+    glRotatef(Angle, 0, 1, 0);
 
-    DrawPolygon(
-        {
-            {-0.9, -1, 0},
-            {-0.9, 0, 0},
-            {0.9, 0, 0},
-            {0.9, -1, 0}
-        }, 
-        { 100, 100, 100, 255 }
-    );
-
-    DrawPolygon(
-        {
-            {-1, 0, 0},
-            {0, 1, 0},
-            {1, 0, 0}
-        },
-        { 0, 255, 100, 255 }
-    );
-
-    DrawPolygon(
-        {
-            {-0.3, -0.6, 0.001},
-            {-0.3, -0.1, 0.001},
-            {0.3, -0.1, 0.001},
-            {0.3, -0.6, 0.001}
-        },
-        { 255, 255, 0, 255 }
-    );
+    DrawBox({ 0, 0, 0 }, 2, 1, 2, { 100, 100, 100, 255 });
 
     if(context != NULL)
         SwapBuffers(context->HDC());
 }
+//#pragma once
+//#include "libs.hpp"
+//
+//wstring szMainClass = L"MainClass";
+//wstring szTitle = L"Laba 3";
+//
+//ListBox* list;
+//
+//int MainCallback(CallbackArgs args);
+//
+//int _main_(MainArgs args)
+//{
+//	Window* wnd = new Window(szTitle, &szMainClass, args);
+//	wnd->CreateDefaultWindow(NULL, MainCallback);
+//
+//	list = new ListBox(L"", wnd, args.hInstance, false);
+//	list->Create(BORDER, { 10, 10 }, { 100, 100 });
+//	list->AddVScroll();
+//
+//	return 0;
+//}
+//
+//int MainCallback(CallbackArgs args)
+//{
+//	if (Closing(args))
+//		Quit();
+//	return 1;
+//}
