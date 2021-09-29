@@ -2,7 +2,7 @@
 name: Баг репорт
 about: Сообщите о проблеме, чтобы мы могли ее исправить
 title: ''
-labels: 'bug'
+labels: bug
 assignees: ''
 
 ---

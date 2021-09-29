@@ -2,7 +2,7 @@
 name: Устаревшая документация
 about: Сообщите об устаревшей или неактуальной документации
 title: ''
-labels: 'documentation'
+labels: documentation
 assignees: ''
 
 ---
