@@ -10,6 +10,7 @@
                 "FrameworkEntryPoint.cpp",
                 "-o",
                 "${fileDirname}\\main.exe",
+                "${workspaceFolder}\\WinApiFramework\\OpenGL\\Libs\\GL\\glew32.lib",
                 "-lgdi32",
                 "-lopengl32",
                 "-lglu32",
