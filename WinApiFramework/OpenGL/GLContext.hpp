@@ -1,12 +1,11 @@
 #pragma once
-
-#include <gl/GL.h>
-#include <gl/GLU.h>
 #include <Windows.h>
 #include <vector>
 
 #include "../Framework/Elements/Window.hpp"
 #include "Libs/OpenGL.hpp"
+#include "GLLibs.hpp"
+#include "Vertex.hpp"
 
 struct GLColor
 {
@@ -16,11 +15,6 @@ struct GLColor
 struct RGBAColor
 {
 	float R, G, B, A;
-};
-
-struct Vertex
-{
-	float X, Y, Z;
 };
 
 GLColor RGBToGL(RGBAColor color)
@@ -84,51 +78,93 @@ void DrawQuads(vector<Vertex> vertexes, RGBAColor color)
 
 	glEnd();
 }
+void DrawQuads(vector<Vertex> vertexes, RGBAColor color, Vertex normal)
+{
+	GLColor clr = RGBToGL(color);
+	glColor3f(clr.R, clr.G, clr.B);
+
+	glBegin(GL_QUADS);
+
+	glNormal3f(normal.X, normal.Y, normal.Z);
+
+	for (auto& vert : vertexes)
+		glVertex3f(vert.X, vert.Y, vert.Z);
+
+	glEnd();
+}
 
 void DrawBox(Vertex center, float width, float height, float depth, RGBAColor color)
 {
 	//Bottom
 	DrawQuads(
 		{
-			{center.X - width / 2, center.Y - height / 2, center.Z - height / 2},
-			{center.X - width / 2, center.Y - height / 2, center.Z + height / 2},
-			{center.X + width / 2, center.Y - height / 2, center.Z + height / 2},
-			{center.X + width / 2, center.Y - height / 2, center.Z - height / 2}
+			{center.X - width / 2, center.Y - height / 2, center.Z - depth / 2},
+			{center.X - width / 2, center.Y - height / 2, center.Z + depth / 2},
+			{center.X + width / 2, center.Y - height / 2, center.Z + depth / 2},
+			{center.X + width / 2, center.Y - height / 2, center.Z - depth / 2}
 		},
-		color
+		color,
+		{0, -1, 0}
 	);
 
 	//Top
 	DrawQuads(
 		{
-			{center.X - width / 2, center.Y + height / 2, center.Z - height / 2},
-			{center.X - width / 2, center.Y + height / 2, center.Z + height / 2},
-			{center.X + width / 2, center.Y + height / 2, center.Z + height / 2},
-			{center.X + width / 2, center.Y + height / 2, center.Z - height / 2}
+			{center.X - width / 2, center.Y + height / 2, center.Z - depth / 2},
+			{center.X - width / 2, center.Y + height / 2, center.Z + depth / 2},
+			{center.X + width / 2, center.Y + height / 2, center.Z + depth / 2},
+			{center.X + width / 2, center.Y + height / 2, center.Z - depth / 2}
 		},
-		color
+		color,
+		{ 0, 1, 0 }
 	);
 
 	//Front
 	DrawQuads(
 		{
-			{center.X - width / 2, center.Y - height / 2, center.Z - height / 2},
-			{center.X - width / 2, center.Y + height / 2, center.Z - height / 2},
-			{center.X + width / 2, center.Y + height / 2, center.Z - height / 2},
-			{center.X + width / 2, center.Y - height / 2, center.Z - height / 2}
+			{center.X - width / 2, center.Y - height / 2, center.Z + depth / 2},
+			{center.X + width / 2, center.Y - height / 2, center.Z + depth / 2},
+			{center.X + width / 2, center.Y + height / 2, center.Z + depth / 2},
+			{center.X - width / 2, center.Y + height / 2, center.Z + depth / 2}
 		},
-		color
+		color,
+		{ 0, 0, 1 }
 	);
 
 	//Rear
 	DrawQuads(
 		{
-			{center.X - width / 2, center.Y - height / 2, center.Z + height / 2},
-			{center.X - width / 2, center.Y + height / 2, center.Z + height / 2},
-			{center.X + width / 2, center.Y + height / 2, center.Z + height / 2},
-			{center.X + width / 2, center.Y - height / 2, center.Z + height / 2}
+			{center.X - width / 2, center.Y - height / 2, center.Z - depth / 2},
+			{center.X + width / 2, center.Y - height / 2, center.Z - depth / 2},
+			{center.X + width / 2, center.Y + height / 2, center.Z - depth / 2},
+			{center.X - width / 2, center.Y + height / 2, center.Z - depth / 2}
 		},
-		color
+		color,
+		{ 0, 0, -1 }
+	);
+
+	//Left
+	DrawQuads(
+		{
+			{center.X - width / 2, center.Y - height / 2, center.Z + depth / 2},
+			{center.X - width / 2, center.Y + height / 2, center.Z + depth / 2},
+			{center.X - width / 2, center.Y + height / 2, center.Z - depth / 2},
+			{center.X - width / 2, center.Y - height / 2, center.Z - depth / 2},
+		},
+		color,
+		{ -1, 0, 0 }
+	);
+
+	//Right
+	DrawQuads(
+		{
+			{center.X + width / 2, center.Y - height / 2, center.Z + depth / 2},
+			{center.X + width / 2, center.Y + height / 2, center.Z + depth / 2},
+			{center.X + width / 2, center.Y + height / 2, center.Z - depth / 2},
+			{center.X + width / 2, center.Y - height / 2, center.Z - depth / 2},
+		},
+		color,
+		{ 1, 0, 0 }
 	);
 }
 
@@ -150,22 +186,22 @@ public:
 		GLuint  PixelFormat;
 		static  PIXELFORMATDESCRIPTOR pfd =
 		{
-			sizeof(PIXELFORMATDESCRIPTOR),  // ������ ���� ���������
-			1,                              // ����� ������ (?)
-			PFD_DRAW_TO_WINDOW | PFD_SUPPORT_OPENGL | PFD_DOUBLEBUFFER, 
-			PFD_TYPE_RGBA,                  // ��������� RGBA ������
-			16,                             // ����� 16 ��� ������� �����
-			0, 0, 0, 0, 0, 0,                       // ������������� �������� ����� (?)
-			0,                              // ��� ������ ������������
-			0,                              // ��������� ��� ������������ (?)
-			0,                              // ��� ������ �����������
-			0, 0, 0, 0,                             // ���� ����������� ������������ (?)
-			16,                             // 16 ������ Z-����� (����� �������)
-			0,                              // ��� ������ ����������
-			0,                              // ��� ��������������� ������� (?)
-			PFD_MAIN_PLANE,                 // ������� ���� ���������
-			0,                              // ������ (?)
-			0, 0, 0                         // ����� ���� ������������ (?)
+			sizeof(PIXELFORMATDESCRIPTOR),
+			1,
+			PFD_DRAW_TO_WINDOW | PFD_SUPPORT_OPENGL | PFD_DOUBLEBUFFER,
+			PFD_TYPE_RGBA,
+			16,
+			0, 0, 0, 0, 0, 0,
+			0,
+			0,
+			0,
+			0, 0, 0, 0,
+			16,
+			0,
+			0,
+			PFD_MAIN_PLANE,
+			0,
+			0, 0, 0
 		};
 
 		parent = wnd;
@@ -180,16 +216,20 @@ public:
 
 		sceneRenderer = renderer;
 
-		glEnable(GL_LIGHTING);
+		glewInit();
+
 		Init();
 	}
 
 	void AddAmbienLight(RGBAColor color)
 	{
+		glEnable(GL_LIGHTING);
+		//glEnable(GL_COLOR_MATERIAL);
 		GLColor clr = RGBToGL(color);
 		float params[4] = { clr.R, clr.B, clr.G, clr.A };
 
 		glLightModelfv(GL_LIGHT_MODEL_AMBIENT, params);
+		glEnable(GL_LIGHT0);
 	}
 
 	void Init()
@@ -199,12 +239,23 @@ public:
 
 		glViewport(0, 0, rect.right, rect.bottom);
 		ClearColor(0, 0, 0, 255);
-		
+
 		glClearDepth(1.0);
 		glDepthFunc(GL_LESS);
-		glEnable(GL_DEPTH_TEST);
+		glEnable(GL_NORMALIZE);
 
-		glShadeModel(GL_SMOOTH);
+		/*glHint(GL_POLYGON_SMOOTH_HINT, GL_FASTEST);
+		glEnable(GL_POLYGON_SMOOTH);
+
+		glHint(GL_POINT_SMOOTH_HINT, GL_FASTEST);
+		glEnable(GL_POINT_SMOOTH);
+
+		glHint(GL_LINE_SMOOTH_HINT, GL_FASTEST);
+		glEnable(GL_LINE_SMOOTH);*/
+
+		glEnable(GL_DEPTH_TEST);
+		//glEnable(GL_ALPHA_TEST);
+
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
 		gluPerspective(45.0f, (GLfloat)rect.right / (GLfloat)rect.bottom, 0.1f, 100.0f);
@@ -212,6 +263,13 @@ public:
 		glMatrixMode(GL_MODELVIEW);
 
 		Render();
+	}
+
+	void AddSmooth()
+	{
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glShadeModel(GL_SMOOTH);
 	}
 
 	void ResizeScene(float width, float height)
@@ -244,7 +302,7 @@ public:
 	void ClearBuffers(DWORD buffers)
 	{
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | buffers);
-		//glLoadIdentity();
+		glLoadIdentity();
 	}
 
 	void Render()

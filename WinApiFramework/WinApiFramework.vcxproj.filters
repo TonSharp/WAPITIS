@@ -68,6 +68,24 @@
     <ClInclude Include="OpenGL\GLLibs.hpp">
       <Filter>OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="OpenGL\Model.hpp">
+      <Filter>OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGL\Surface3.hpp">
+      <Filter>OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGL\Surface4.hpp">
+      <Filter>OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGL\Material.hpp">
+      <Filter>OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGL\Vertex.hpp">
+      <Filter>OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGL\GameObject.hpp">
+      <Filter>OpenGL</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="WinAPI">
@@ -81,9 +99,6 @@
     </Filter>
     <Filter Include="OpenGL">
       <UniqueIdentifier>{ac82ecfe-4494-4e46-a6b2-4da223a26ae2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="OpenGL\Libs">
-      <UniqueIdentifier>{aa88eb4d-3994-4905-8a9e-4ab9a63cb0ac}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

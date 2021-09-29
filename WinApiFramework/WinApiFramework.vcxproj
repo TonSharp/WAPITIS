@@ -40,8 +40,14 @@
     <ClInclude Include="Framework\libs.hpp" />
     <ClInclude Include="Framework\main.hpp" />
     <ClInclude Include="Framework\UpdateCallbacks.hpp" />
+    <ClInclude Include="OpenGL\GameObject.hpp" />
     <ClInclude Include="OpenGL\GLContext.hpp" />
     <ClInclude Include="OpenGL\GLLibs.hpp" />
+    <ClInclude Include="OpenGL\Material.hpp" />
+    <ClInclude Include="OpenGL\Model.hpp" />
+    <ClInclude Include="OpenGL\Surface3.hpp" />
+    <ClInclude Include="OpenGL\Surface4.hpp" />
+    <ClInclude Include="OpenGL\Vertex.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Framework\FrameworkEntryPoint.cpp" />
