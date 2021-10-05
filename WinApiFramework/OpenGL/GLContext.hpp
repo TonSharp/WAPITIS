@@ -216,8 +216,6 @@ public:
 
 		sceneRenderer = renderer;
 
-		glewInit();
-
 		Init();
 	}
 

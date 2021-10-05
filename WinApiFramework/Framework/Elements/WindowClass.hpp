@@ -7,7 +7,7 @@ using namespace std;
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam)
 {
-	int (*cls)(CallbackArgs) = (int(*)(CallbackArgs))GetWindowLong(hWnd, GWL_USERDATA);
+	int (*cls)(CallbackArgs) = (int(*)(CallbackArgs))GetWindowLongPtr(hWnd, GWLP_USERDATA);
 
 	if (cls != nullptr)
 		if (cls({ hWnd, Msg, wParam, lParam }) != 1) {}

@@ -22,6 +22,15 @@ public:
 
 	GameObject()
 	{
+		Scale.X = 1;
+		Scale.Y = 1;
+		Scale.Z = 1;
+	}
+
+	void LoadMesh(string path)
+	{
+		mesh = new Mesh();
+		mesh->Load(path);
 	}
 
 	void AssignMesh(Mesh* mesh)

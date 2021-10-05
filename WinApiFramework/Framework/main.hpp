@@ -7,8 +7,7 @@ wstring szTitle = L"Title";
 Window* wnd;
 GLContext* context;
 
-Mesh* kek, *monk;
-GameObject* shrek, *monkey;
+GameObject *dObj;
 
 int Angle;
 float zPos;
@@ -19,11 +18,10 @@ void MainRenderer();
 
 int _main_(MainArgs args)
 {
-    shrek = new GameObject();
-    monkey = new GameObject();
+    Mouse::SetCursorLock(true);
+    Mouse::HideCursor();
 
-    kek = new Mesh();
-    monk = new Mesh();
+    dObj = new GameObject();
 
     wnd = new Window(szTitle, &szMainClass, args);
     wnd->CreateCustomWindow(0, GL_WINDOW, { 10, 10 }, { 800, 600 }, NULL, NULL, NULL, MainCallback);
@@ -34,59 +32,39 @@ int _main_(MainArgs args)
 
     UpdateCallback.push_back(Update);
 
-    kek->Load("Shrek.obj");
-    monk->Load("monkey.obj");
-
-    shrek->AssignMesh(kek);
-    monkey->AssignMesh(monk);
+    dObj->LoadMesh("D.obj");
+    dObj->Rotation.X = 90;
 
     return 0;
 }
 
 int MainCallback(CallbackArgs args)
 {
-    if (Closing(args))
+    if (Closing(args) || Keyboard::GetKeyDown(args, VK_ESCAPE))
     {
         Quit();
     }
+
     return 1;
 }
 
 void Update()
 {
+    Mouse::Update(wnd);
+
     context->Render();
-    Angle+=1;
-    //zPos -= 0.5;
 }
 
 void MainRenderer()
 {
     context->ClearBuffers(0);
 
-    //glTranslatef(0, -5, -20 + zPos);
-    ////glRotatef(Angle, 0, 1, 0);
-    //glScalef(0.25, 0.25, 0.25);
-
-    shrek->Transform.X = 2;
-    shrek->Transform.Z = -10;
-    shrek->Transform.Y = -3;
-    shrek->ScaleObject(0.1);
-    shrek->Rotation.Y = (float)Angle;
-    shrek->Draw();
-
-    //kek->Translate({ 10, 0, 0 });
-    //kek->Rotate(Angle, { 0, 1, 0 });
-    //kek->Draw({ 0, 255, 0, 255 });
-
-    monkey->Transform.X = 2;
-    monkey->Transform.Z = -10;
-    monkey->ScaleObject(1);
-    monkey->Rotation.Y = (float)Angle;
-    monkey->Draw();
-    /*monk->Translate({ -20, 0, 0 });
-    monk->Rotate(-Angle, { 0, 1, 0 });
-    monk->Scale({ 10, 10, 10 });
-    monk->Draw({ 0, 255, 0, 255 });*/
+    dObj->Transform.Z = -2;
+    dObj->Transform.Y = -0.5;
+    dObj->Rotation.Z += Mouse::GetDX();
+    dObj->Rotation.X += Mouse::GetDY();
+    dObj->ScaleObject(0.5);
+    dObj->Draw();
 
     if(context)
         SwapBuffers(context->HDC());

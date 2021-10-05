@@ -12,4 +12,7 @@
 #include "Elements/UI/UILibs.hpp"
 #include "Elements/UI/Menu/Menu.hpp"
 
+#include "Mouse.hpp"
+#include "Keyboard.hpp"
+
 #include "../OpenGL/GLLibs.hpp"

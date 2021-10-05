@@ -86,6 +86,12 @@
     <ClInclude Include="OpenGL\GameObject.hpp">
       <Filter>OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="Framework\Keyboard.hpp">
+      <Filter>WinAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Mouse.hpp">
+      <Filter>WinAPI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="WinAPI">

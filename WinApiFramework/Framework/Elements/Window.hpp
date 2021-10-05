@@ -89,7 +89,7 @@ public:
 			NULL
 		);
 
-		SetWindowLong(hWnd, GWL_USERDATA, (LONG)callback);
+		SetWindowLongPtr(hWnd, GWLP_USERDATA, (LONG_PTR)callback);
 
 		return RegisterWindow();
 	}
@@ -117,7 +117,7 @@ public:
 			lParam
 		);
 
-		SetWindowLong(hWnd, GWL_USERDATA, (LONG)callback);
+		SetWindowLongPtr(hWnd, GWLP_USERDATA, (LONG_PTR)callback);
 
 		return RegisterWindow();
 	}
