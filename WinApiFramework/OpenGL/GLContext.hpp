@@ -3,7 +3,6 @@
 #include <vector>
 
 #include "../Framework/Elements/Window.hpp"
-#include "Libs/OpenGL.hpp"
 #include "GLLibs.hpp"
 #include "Vertex.hpp"
 
