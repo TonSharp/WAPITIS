@@ -75,7 +75,7 @@ public:
 
 			string line(buff);
 
-			if (line == "")
+			if (line.empty())
 				continue;
 
 			auto elems = split(line, ' ');
@@ -277,7 +277,7 @@ public:
 		GLColor clr = RGBToGL(color);
 		glColor3f(clr.R, clr.G, clr.B);
 
-		if (surfs3.size() > 0)
+		if (!surfs3.empty())
 		{
 			glBegin(GL_TRIANGLES);
 
@@ -292,7 +292,7 @@ public:
 			glEnd();
 		}
 
-		if (surfs4.size() > 0)
+		if (!surfs4.empty())
 		{
 			glBegin(GL_QUADS);
 

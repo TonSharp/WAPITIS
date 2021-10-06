@@ -7,10 +7,10 @@ using namespace std;
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam)
 {
-	int (*cls)(CallbackArgs) = (int(*)(CallbackArgs))GetWindowLongPtr(hWnd, GWLP_USERDATA);
+	auto customProc = (int(*)(CallbackArgs))GetWindowLongPtr(hWnd, GWLP_USERDATA);
 
-	if (cls != nullptr)
-		if (cls({ hWnd, Msg, wParam, lParam }) != 1) {}
+	if (customProc != nullptr)
+		if (customProc({ hWnd, Msg, wParam, lParam }) != 1) {}
 
 	if (Msg == WM_CLOSE)
 		DestroyWindow(hWnd);
@@ -29,7 +29,7 @@ private:
 	{
 		if (!RegisterClassEx(&wndClass))
 		{
-			MessageBox(NULL, L"Не получилось зарегистрировать класс!", L"Ошибка", MB_OK);
+			MessageBox(nullptr, L"Не получилось зарегистрировать класс!", L"Ошибка", MB_OK);
 			auto err = GetLastError();
 			return false;
 		}
@@ -53,13 +53,13 @@ public:
 		wndClass.cbSize = sizeof(WNDCLASSEX);
 		wndClass.style = CS_HREDRAW | CS_VREDRAW;
 		wndClass.lpfnWndProc = WndProc;
-		wndClass.lpszMenuName = NULL;
+		wndClass.lpszMenuName = nullptr;
 		wndClass.lpszClassName = szClassName.c_str();
 		wndClass.cbWndExtra = 0;
 		wndClass.cbClsExtra = 0;
-		wndClass.hIcon = LoadIcon(NULL, IDI_WINLOGO);
-		wndClass.hIconSm = LoadIcon(NULL, IDI_WINLOGO);
-		wndClass.hCursor = LoadCursor(NULL, IDC_ARROW);
+		wndClass.hIcon = LoadIcon(nullptr, IDI_WINLOGO);
+		wndClass.hIconSm = LoadIcon(nullptr, IDI_WINLOGO);
+		wndClass.hCursor = LoadCursor(nullptr, IDC_ARROW);
 		wndClass.hbrBackground = (HBRUSH)GetStockObject(WHITE_BRUSH);
 		wndClass.hInstance = hInstance;
 	}

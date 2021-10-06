@@ -15,8 +15,7 @@ public:
 		if (args.wParam == KeyCode)
 			return true;
 
-		else
-			return false;
+		return false;
 	}
 	static bool GetKeyDown(CallbackArgs args)
 	{
@@ -31,8 +30,7 @@ public:
 		if (args.wParam == KeyCode)
 			return true;
 
-		else
-			return false;
+		return false;
 	}
 	static bool GetKeyUp(CallbackArgs args)
 	{

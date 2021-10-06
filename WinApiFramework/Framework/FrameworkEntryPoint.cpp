@@ -3,8 +3,8 @@
 
 void CallRenderCallbacks()
 {
-    if (UpdateCallback.size() > 0)
-        for (auto call : UpdateCallback)
+    if (!UpdateCallback.empty())
+        for (const auto call : UpdateCallback)
             call();
 }
 
@@ -14,7 +14,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR IpszCmdLine, int 
 
     MSG msg;
 
-    while (1)
+    while (true)
     {
         while (PeekMessage(&msg, NULL, 0, 0, PM_NOREMOVE))
         {
@@ -30,6 +30,4 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR IpszCmdLine, int 
         Mouse::Update();
         CallRenderCallbacks();
     }
-
-    return msg.wParam;
 }

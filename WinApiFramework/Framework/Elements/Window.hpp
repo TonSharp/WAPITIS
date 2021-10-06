@@ -37,7 +37,7 @@ private:
 	{
 		if (!hWnd)
 		{
-			MessageBox(NULL, L"Не удалось создать окно!", L"Ошибка", MB_OK);
+			MessageBox(nullptr, L"Не удалось создать окно!", L"Ошибка", MB_OK);
 			return false;
 		}
 		else

@@ -45,7 +45,7 @@ public:
 	{
 		RECT rect;
 
-		LPPOINT point = new POINT();
+		auto point = new POINT();
 		GetCursorPos(point);
 
 		float centerX = point->x;

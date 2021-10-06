@@ -1,5 +1,7 @@
 #pragma once
 
+#include <utility>
+
 #include "GLLibs.hpp"
 
 using namespace std;
@@ -25,6 +27,8 @@ public:
 		Scale.X = 1;
 		Scale.Y = 1;
 		Scale.Z = 1;
+
+		mesh = nullptr;
 	}
 
 	void LoadMesh(string path)

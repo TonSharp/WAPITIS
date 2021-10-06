@@ -11,7 +11,7 @@ public:
 
 	BOOL Get()
 	{
-		return GetMessage(&msg, NULL, 0, 0);
+		return GetMessage(&msg, nullptr, 0, 0);
 	}
 
 	void Dispatch()

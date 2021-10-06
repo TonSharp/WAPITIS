@@ -21,7 +21,7 @@ int _main_(MainArgs args)
     dObj = new GameObject();
 
     wnd = new Window(szTitle, &szMainClass, args);
-    wnd->CreateCustomWindow(0, GL_WINDOW, { 10, 10 }, { 800, 600 }, NULL, NULL, NULL, MainCallback);
+    wnd->CreateCustomWindow(0, GL_WINDOW, { 10, 10 }, { 800, 600 }, nullptr, nullptr, nullptr, MainCallback);
 
     context = new GLContext(wnd, 0, 16, 16, MainRenderer);
     context->AddSmooth();
@@ -38,6 +38,7 @@ int _main_(MainArgs args)
     dObj->Rotation.X = 90;
     dObj->Transform.Z = -2;
     dObj->Transform.Y = -0.5;
+    dObj->ScaleObject(0.5);
 
     return 0;
 }
@@ -63,7 +64,6 @@ void MainRenderer()
 
     dObj->Rotation.Z += Mouse::GetDX();
     dObj->Rotation.X += Mouse::GetDY();
-    dObj->ScaleObject(0.5);
     dObj->Draw();
 
     if(context)

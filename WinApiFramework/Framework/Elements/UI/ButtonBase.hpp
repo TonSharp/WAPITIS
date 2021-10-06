@@ -47,8 +47,8 @@ public:
 
 		if (res == 0 || res == 2)
 			return false;
-		else
-			return true;
+
+		return true;
 	}
 
 	// Returns true if the button is clicked.
@@ -62,7 +62,7 @@ public:
 
 		if (args.lParam == (LPARAM)wnd)
 			return true;
-		else 
-			return false;
+
+		return false;
 	}
 };

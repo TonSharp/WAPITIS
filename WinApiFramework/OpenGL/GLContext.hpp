@@ -3,7 +3,6 @@
 #include <vector>
 
 #include "../Framework/Elements/Window.hpp"
-#include "GLLibs.hpp"
 #include "Vertex.hpp"
 
 struct GLColor
@@ -20,10 +19,10 @@ GLColor RGBToGL(RGBAColor color)
 {
 	GLColor cl = { 0 };
 
-	cl.R = (float)color.R / 255;
-	cl.G = (float)color.G / 255;
-	cl.B = (float)color.B / 255;
-	cl.A = (float)color.A / 255;
+	cl.R = static_cast<float>(color.R) / 255;
+	cl.G = static_cast<float>(color.G) / 255;
+	cl.B = static_cast<float>(color.B) / 255;
+	cl.A = static_cast<float>(color.A) / 255;
 
 	return cl;
 }
@@ -31,10 +30,10 @@ RGBAColor GLToRGB(GLColor color)
 {
 	RGBAColor cl = { 0 };
 
-	cl.R = (float)color.R * 255;
-	cl.G = (float)color.G * 255;
-	cl.B = (float)color.B * 255;
-	cl.A = (float)color.A * 255;
+	cl.R = static_cast<float>(color.R) * 255;
+	cl.G = static_cast<float>(color.G) * 255;
+	cl.B = static_cast<float>(color.B) * 255;
+	cl.A = static_cast<float>(color.A) * 255;
 
 	return cl;
 }
@@ -46,7 +45,7 @@ void DrawPolygon(vector<Vertex> vertexes, RGBAColor color)
 
 	glBegin(GL_POLYGON);
 
-	for (auto &vert : vertexes)
+	for (const auto &vert : vertexes)
 		glVertex3f(vert.X, vert.Y, vert.Z);
 
 	glEnd();
@@ -59,7 +58,7 @@ void DrawTriangles(vector<Vertex> vertexes, RGBAColor color)
 
 	glBegin(GL_POLYGON);
 
-	for (auto& vert : vertexes)
+	for (const auto& vert : vertexes)
 		glVertex3f(vert.X, vert.Y, vert.Z);
 
 	glEnd();
@@ -72,7 +71,7 @@ void DrawQuads(vector<Vertex> vertexes, RGBAColor color)
 
 	glBegin(GL_QUADS);
 
-	for (auto& vert : vertexes)
+	for (const auto& vert : vertexes)
 		glVertex3f(vert.X, vert.Y, vert.Z);
 
 	glEnd();
@@ -86,7 +85,7 @@ void DrawQuads(vector<Vertex> vertexes, RGBAColor color, Vertex normal)
 
 	glNormal3f(normal.X, normal.Y, normal.Z);
 
-	for (auto& vert : vertexes)
+	for (const auto& vert : vertexes)
 		glVertex3f(vert.X, vert.Y, vert.Z);
 
 	glEnd();
@@ -221,7 +220,6 @@ public:
 	void AddAmbienLight(RGBAColor color)
 	{
 		glEnable(GL_LIGHTING);
-		//glEnable(GL_COLOR_MATERIAL);
 		GLColor clr = RGBToGL(color);
 		float params[4] = { clr.R, clr.B, clr.G, clr.A };
 
@@ -251,11 +249,10 @@ public:
 		glEnable(GL_LINE_SMOOTH);*/
 
 		glEnable(GL_DEPTH_TEST);
-		//glEnable(GL_ALPHA_TEST);
 
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
-		gluPerspective(45.0f, (GLfloat)rect.right / (GLfloat)rect.bottom, 0.1f, 100.0f);
+		gluPerspective(45.0f, static_cast<GLfloat>(rect.right) / static_cast<GLfloat>(rect.bottom), 0.1f, 100.0f);
 
 		glMatrixMode(GL_MODELVIEW);
 
@@ -282,7 +279,7 @@ public:
 
 		glMatrixMode(GL_PROJECTION);
 		glLoadIdentity();
-		gluPerspective(45.0f, (GLfloat)rect.right / (GLfloat)rect.bottom, 0.1f, 100.0f);
+		gluPerspective(45.0f, static_cast<GLfloat>(rect.right) / static_cast<GLfloat>(rect.bottom), 0.1f, 100.0f);
 
 		glMatrixMode(GL_MODELVIEW);
 		glLoadIdentity();
@@ -292,8 +289,8 @@ public:
 
 	void ClearColor(UINT8 r, UINT8 g, UINT8 b, UINT8 a)
 	{
-		glClearColor((float)r / 255, (float)g / 255, (float)b / 255, (float)a / 255);
-		InvalidateRect(*parent, NULL, true);
+		glClearColor(static_cast<float>(r) / 255, static_cast<float>(g) / 255, static_cast<float>(b) / 255, static_cast<float>(a) / 255);
+		InvalidateRect(*parent, nullptr, true);
 	}
 
 	void ClearBuffers(DWORD buffers)
@@ -313,17 +310,17 @@ public:
 
 	void Destroy()
 	{
-		if (hRC != NULL)
+		if (hRC != nullptr)
 		{
-			wglMakeCurrent(NULL, NULL); 
+			wglMakeCurrent(nullptr, nullptr); 
 			wglDeleteContext(hRC);
-			hRC = NULL;
+			hRC = nullptr;
 		}
 
-		if (hDC != NULL)
+		if (hDC != nullptr)
 		{
 			ReleaseDC(*parent, hDC);
-			hDC = NULL;
+			hDC = nullptr;
 		}
 	}
 
