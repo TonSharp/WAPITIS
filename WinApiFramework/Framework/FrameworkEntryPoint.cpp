@@ -27,6 +27,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR IpszCmdLine, int 
                 return TRUE;
         }
 
+        Mouse::Update();
         CallRenderCallbacks();
     }
 

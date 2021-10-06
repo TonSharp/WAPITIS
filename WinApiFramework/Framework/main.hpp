@@ -18,9 +18,6 @@ void MainRenderer();
 
 int _main_(MainArgs args)
 {
-    Mouse::SetCursorLock(true);
-    Mouse::HideCursor();
-
     dObj = new GameObject();
 
     wnd = new Window(szTitle, &szMainClass, args);
@@ -32,8 +29,15 @@ int _main_(MainArgs args)
 
     UpdateCallback.push_back(Update);
 
+    Mouse::Link(wnd);
+    Mouse::LockCursor();
+    Mouse::HideCursor();
+
     dObj->LoadMesh("D.obj");
+
     dObj->Rotation.X = 90;
+    dObj->Transform.Z = -2;
+    dObj->Transform.Y = -0.5;
 
     return 0;
 }
@@ -50,8 +54,6 @@ int MainCallback(CallbackArgs args)
 
 void Update()
 {
-    Mouse::Update(wnd);
-
     context->Render();
 }
 
@@ -59,8 +61,6 @@ void MainRenderer()
 {
     context->ClearBuffers(0);
 
-    dObj->Transform.Z = -2;
-    dObj->Transform.Y = -0.5;
     dObj->Rotation.Z += Mouse::GetDX();
     dObj->Rotation.X += Mouse::GetDY();
     dObj->ScaleObject(0.5);
