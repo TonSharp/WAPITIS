@@ -33,12 +33,13 @@ int _main_(MainArgs args)
     Mouse::LockCursor();
     Mouse::HideCursor();
 
-    dObj->LoadMesh("D.obj");
+    dObj->LoadMesh("Shrek.obj");
+    dObj->LoadTexture("Shrek.tga");
 
-    dObj->Rotation.X = 90;
-    dObj->Transform.Z = -2;
-    dObj->Transform.Y = -0.5;
-    dObj->ScaleObject(0.5);
+    //dObj->Rotation.X = 90;
+    dObj->Transform.Z = -10;
+    //dObj->Transform.Y = -0.5;
+    dObj->ScaleObject(0.05);
 
     return 0;
 }
@@ -62,8 +63,8 @@ void MainRenderer()
 {
     context->ClearBuffers(0);
 
-    dObj->Rotation.Z += Mouse::GetDX();
     dObj->Rotation.X += Mouse::GetDY();
+    dObj->Rotation.Y += Mouse::GetDX();
     dObj->Draw();
 
     if(context)

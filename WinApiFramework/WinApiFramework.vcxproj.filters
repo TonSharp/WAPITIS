@@ -68,9 +68,6 @@
     <ClInclude Include="OpenGL\GLLibs.hpp">
       <Filter>OpenGL</Filter>
     </ClInclude>
-    <ClInclude Include="OpenGL\Model.hpp">
-      <Filter>OpenGL</Filter>
-    </ClInclude>
     <ClInclude Include="OpenGL\Surface3.hpp">
       <Filter>OpenGL</Filter>
     </ClInclude>
@@ -91,6 +88,12 @@
     </ClInclude>
     <ClInclude Include="Framework\Mouse.hpp">
       <Filter>WinAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGL\Mesh.hpp">
+      <Filter>OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGL\Texture.hpp">
+      <Filter>OpenGL</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

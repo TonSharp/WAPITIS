@@ -8,4 +8,5 @@ struct Surface4
 {
 	Vertex normal;
 	Vertex points[4];
+	TextureCoord texCoords[4];
 };

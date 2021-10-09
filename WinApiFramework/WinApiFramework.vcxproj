@@ -46,9 +46,10 @@
     <ClInclude Include="OpenGL\GLContext.hpp" />
     <ClInclude Include="OpenGL\GLLibs.hpp" />
     <ClInclude Include="OpenGL\Material.hpp" />
-    <ClInclude Include="OpenGL\Model.hpp" />
+    <ClInclude Include="OpenGL\Mesh.hpp" />
     <ClInclude Include="OpenGL\Surface3.hpp" />
     <ClInclude Include="OpenGL\Surface4.hpp" />
+    <ClInclude Include="OpenGL\Texture.hpp" />
     <ClInclude Include="OpenGL\Vertex.hpp" />
   </ItemGroup>
   <ItemGroup>
@@ -122,7 +123,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions);_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
